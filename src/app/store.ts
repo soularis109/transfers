@@ -1,8 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import ticketsReducer from '../entities/ticket/model/ticketsSlice'
+import stopsFilterReducer from '../features/stops-filter/model/filterSlice'
+import ticketsSortReducer from '../features/tickets-sort/model/sortSlice'
+import ticketsPaginationReducer from '../features/tickets-pagination/model/paginationSlice'
 
 export const store = configureStore({
-  reducer: { tickets: ticketsReducer },
+  reducer: {
+    tickets: ticketsReducer,
+    stopsFilter: stopsFilterReducer,
+    ticketsSort: ticketsSortReducer,
+    ticketsPagination: ticketsPaginationReducer,
+  },
 })
 
 export type RootState = ReturnType<typeof store.getState>
