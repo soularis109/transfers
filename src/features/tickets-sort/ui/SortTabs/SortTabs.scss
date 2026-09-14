@@ -35,4 +35,17 @@
       }
     }
   }
+
+  @media (max-width: v.$bp-mobile) {
+    flex-direction: column;
+
+    &__tab {
+      border-right: none;
+      border-bottom: 1px solid v.$color-border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
 }
