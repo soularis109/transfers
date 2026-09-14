@@ -1,0 +1,47 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import type { Ticket, TicketsResponse } from './types'
+
+interface TicketsState {
+  items: Ticket[]
+  status: 'idle' | 'loading' | 'succeeded' | 'failed'
+  error: string | null
+}
+
+const initialState: TicketsState = {
+  items: [],
+  status: 'idle',
+  error: null,
+}
+
+export const fetchTickets = createAsyncThunk<Ticket[]>(
+  'tickets/fetchTickets',
+  async () => {
+    const res = await fetch(`${import.meta.env.BASE_URL}data/tickets.json`)
+    if (!res.ok) throw new Error(`Failed to load tickets: ${res.status}`)
+    const data: TicketsResponse = await res.json()
+    return data.tickets
+  },
+)
+
+const ticketsSlice = createSlice({
+  name: 'tickets',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchTickets.pending, (state) => {
+        state.status = 'loading'
+        state.error = null
+      })
+      .addCase(fetchTickets.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        state.items = action.payload
+      })
+      .addCase(fetchTickets.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error = action.error.message ?? 'Unknown error'
+      })
+  },
+})
+
+export default ticketsSlice.reducer

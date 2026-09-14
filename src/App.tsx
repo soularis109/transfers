@@ -1,5 +1,7 @@
+import HomePage from './pages/home/HomePage'
+
 function App() {
-  return <div>Transfers</div>
+  return <HomePage />
 }
 
 export default App

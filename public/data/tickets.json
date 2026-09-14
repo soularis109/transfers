@@ -1,0 +1,634 @@
+{
+  "tickets": [
+    {
+      "id": "tkt-001",
+      "price": 12700,
+      "carrier": "SN",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T14:50:00.000Z",
+          "stops": ["HEL"],
+          "duration": 420
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T19:50:00.000Z",
+          "stops": ["CDG"],
+          "duration": 520
+        }
+      ]
+    },
+    {
+      "id": "tkt-002",
+      "price": 19200,
+      "carrier": "LX",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T11:05:00.000Z",
+          "stops": ["KWI", "ZRH", "DOH"],
+          "duration": 1345
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T13:00:00.000Z",
+          "stops": ["ZRH", "BAH", "IST"],
+          "duration": 1165
+        }
+      ]
+    },
+    {
+      "id": "tkt-003",
+      "price": 16400,
+      "carrier": "GF",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T10:35:00.000Z",
+          "stops": [],
+          "duration": 490
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T18:15:00.000Z",
+          "stops": [],
+          "duration": 470
+        }
+      ]
+    },
+    {
+      "id": "tkt-004",
+      "price": 10400,
+      "carrier": "AY",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T00:05:00.000Z",
+          "stops": ["BAH"],
+          "duration": 610
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T03:30:00.000Z",
+          "stops": ["DOH"],
+          "duration": 535
+        }
+      ]
+    },
+    {
+      "id": "tkt-005",
+      "price": 22400,
+      "carrier": "WY",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T05:50:00.000Z",
+          "stops": ["CAI"],
+          "duration": 670
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T06:35:00.000Z",
+          "stops": ["CAI"],
+          "duration": 825
+        }
+      ]
+    },
+    {
+      "id": "tkt-006",
+      "price": 14100,
+      "carrier": "AY",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T15:00:00.000Z",
+          "stops": [],
+          "duration": 505
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T21:05:00.000Z",
+          "stops": [],
+          "duration": 500
+        }
+      ]
+    },
+    {
+      "id": "tkt-007",
+      "price": 15300,
+      "carrier": "LH",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T18:35:00.000Z",
+          "stops": ["BAH", "CDG"],
+          "duration": 935
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T12:10:00.000Z",
+          "stops": ["KWI", "CDG"],
+          "duration": 880
+        }
+      ]
+    },
+    {
+      "id": "tkt-008",
+      "price": 11500,
+      "carrier": "AF",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T23:05:00.000Z",
+          "stops": ["CDG", "FRA", "ZRH"],
+          "duration": 1020
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T17:50:00.000Z",
+          "stops": ["BAH", "BRU", "DOH"],
+          "duration": 1125
+        }
+      ]
+    },
+    {
+      "id": "tkt-009",
+      "price": 27200,
+      "carrier": "QR",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T01:00:00.000Z",
+          "stops": [],
+          "duration": 450
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T06:15:00.000Z",
+          "stops": [],
+          "duration": 425
+        }
+      ]
+    },
+    {
+      "id": "tkt-010",
+      "price": 11800,
+      "carrier": "FZ",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T03:10:00.000Z",
+          "stops": ["FRA"],
+          "duration": 625
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T22:05:00.000Z",
+          "stops": ["IST"],
+          "duration": 795
+        }
+      ]
+    },
+    {
+      "id": "tkt-011",
+      "price": 13500,
+      "carrier": "EK",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T15:30:00.000Z",
+          "stops": ["HEL"],
+          "duration": 710
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T12:30:00.000Z",
+          "stops": ["DOH"],
+          "duration": 580
+        }
+      ]
+    },
+    {
+      "id": "tkt-012",
+      "price": 20800,
+      "carrier": "SN",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T15:45:00.000Z",
+          "stops": ["DOH", "VIE"],
+          "duration": 915
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T01:05:00.000Z",
+          "stops": ["DOH", "IST"],
+          "duration": 1060
+        }
+      ]
+    },
+    {
+      "id": "tkt-013",
+      "price": 22900,
+      "carrier": "EK",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T00:35:00.000Z",
+          "stops": ["MUC", "HEL", "AMS"],
+          "duration": 1290
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T01:00:00.000Z",
+          "stops": ["BAH", "KWI", "DOH"],
+          "duration": 1040
+        }
+      ]
+    },
+    {
+      "id": "tkt-014",
+      "price": 18400,
+      "carrier": "WY",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T20:45:00.000Z",
+          "stops": [],
+          "duration": 385
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T05:05:00.000Z",
+          "stops": [],
+          "duration": 445
+        }
+      ]
+    },
+    {
+      "id": "tkt-015",
+      "price": 26100,
+      "carrier": "KL",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T21:20:00.000Z",
+          "stops": ["MUC"],
+          "duration": 690
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T02:20:00.000Z",
+          "stops": ["MUC"],
+          "duration": 665
+        }
+      ]
+    },
+    {
+      "id": "tkt-016",
+      "price": 23600,
+      "carrier": "MS",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T13:40:00.000Z",
+          "stops": ["DOH"],
+          "duration": 535
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T22:20:00.000Z",
+          "stops": ["MUC"],
+          "duration": 545
+        }
+      ]
+    },
+    {
+      "id": "tkt-017",
+      "price": 17600,
+      "carrier": "MS",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T07:55:00.000Z",
+          "stops": ["HEL", "VIE"],
+          "duration": 1030
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T08:30:00.000Z",
+          "stops": ["BAH", "ZRH"],
+          "duration": 1020
+        }
+      ]
+    },
+    {
+      "id": "tkt-018",
+      "price": 13900,
+      "carrier": "AY",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T00:15:00.000Z",
+          "stops": ["CDG", "VIE"],
+          "duration": 745
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T19:50:00.000Z",
+          "stops": ["BAH", "DOH"],
+          "duration": 835
+        }
+      ]
+    },
+    {
+      "id": "tkt-019",
+      "price": 14600,
+      "carrier": "LH",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T02:25:00.000Z",
+          "stops": ["CDG", "ZRH", "MUC"],
+          "duration": 1060
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T21:55:00.000Z",
+          "stops": ["HEL", "CAI", "BAH"],
+          "duration": 1180
+        }
+      ]
+    },
+    {
+      "id": "tkt-020",
+      "price": 10900,
+      "carrier": "EY",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T19:15:00.000Z",
+          "stops": ["HEL", "FRA"],
+          "duration": 900
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T05:55:00.000Z",
+          "stops": ["KWI", "CAI"],
+          "duration": 990
+        }
+      ]
+    },
+    {
+      "id": "tkt-021",
+      "price": 19900,
+      "carrier": "SN",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T02:00:00.000Z",
+          "stops": ["KWI"],
+          "duration": 655
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T00:15:00.000Z",
+          "stops": ["FRA"],
+          "duration": 555
+        }
+      ]
+    },
+    {
+      "id": "tkt-022",
+      "price": 25900,
+      "carrier": "GF",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T14:40:00.000Z",
+          "stops": [],
+          "duration": 410
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T18:15:00.000Z",
+          "stops": [],
+          "duration": 420
+        }
+      ]
+    },
+    {
+      "id": "tkt-023",
+      "price": 25400,
+      "carrier": "KL",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T23:00:00.000Z",
+          "stops": ["DOH", "AMS", "VIE"],
+          "duration": 1015
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T14:15:00.000Z",
+          "stops": ["IST", "BRU", "CDG"],
+          "duration": 1130
+        }
+      ]
+    },
+    {
+      "id": "tkt-024",
+      "price": 12200,
+      "carrier": "LH",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T06:35:00.000Z",
+          "stops": ["AMS", "IST"],
+          "duration": 740
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T19:25:00.000Z",
+          "stops": ["AMS", "VIE"],
+          "duration": 925
+        }
+      ]
+    },
+    {
+      "id": "tkt-025",
+      "price": 21300,
+      "carrier": "LH",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T02:40:00.000Z",
+          "stops": [],
+          "duration": 465
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T22:50:00.000Z",
+          "stops": [],
+          "duration": 475
+        }
+      ]
+    },
+    {
+      "id": "tkt-026",
+      "price": 24700,
+      "carrier": "QR",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T06:45:00.000Z",
+          "stops": ["KWI", "FRA"],
+          "duration": 780
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T00:45:00.000Z",
+          "stops": ["MUC", "BRU"],
+          "duration": 960
+        }
+      ]
+    },
+    {
+      "id": "tkt-027",
+      "price": 12900,
+      "carrier": "AY",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T10:10:00.000Z",
+          "stops": ["DOH", "BRU", "ZRH"],
+          "duration": 1200
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T17:25:00.000Z",
+          "stops": ["HEL", "IST", "CDG"],
+          "duration": 1215
+        }
+      ]
+    },
+    {
+      "id": "tkt-028",
+      "price": 15800,
+      "carrier": "SN",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T12:45:00.000Z",
+          "stops": ["IST", "BAH", "DOH"],
+          "duration": 1350
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T02:05:00.000Z",
+          "stops": ["KWI", "DOH", "AMS"],
+          "duration": 1270
+        }
+      ]
+    },
+    {
+      "id": "tkt-029",
+      "price": 23100,
+      "carrier": "LX",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T12:55:00.000Z",
+          "stops": [],
+          "duration": 575
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T22:45:00.000Z",
+          "stops": [],
+          "duration": 475
+        }
+      ]
+    },
+    {
+      "id": "tkt-030",
+      "price": 16700,
+      "carrier": "LH",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T13:50:00.000Z",
+          "stops": ["VIE", "DOH"],
+          "duration": 730
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T12:30:00.000Z",
+          "stops": ["FRA", "IST"],
+          "duration": 850
+        }
+      ]
+    }
+  ]
+}
