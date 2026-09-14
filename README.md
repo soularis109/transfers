@@ -2,7 +2,7 @@
 
 Тестове завдання на позицію Frontend Developer для Collaborator.pro.
 
-Демо: https://<username>.github.io/transfers/
+Демо: https://soularis109.github.io/transfers/
 
 ## Стек
 
@@ -37,5 +37,32 @@ npm run dev
 
 ## Рішення
 
-<!-- TODO: заповнити на фінальному етапі -->
-# transfers
+Стек: React 19 + TypeScript, Redux Toolkit (фільтрація/сортування/
+пагінація рахуються в мемоізованих `createSelector`, а не в компонентах),
+Vite, SCSS (BEM, лише `@use`/`@forward`, без `@import`) зі stylelint
+(`stylelint-config-standard-scss` + кастомний `selector-class-pattern`
+під BEM), Vitest + Testing Library для юніт-тестів.
+
+Два свідомих відхилення від Feature-Sliced Design, проговорені окремо в
+процесі розробки: `entities/ticket/model/selectors.ts` імпортує селектори
+з `features/stops-filter` і `features/tickets-sort`, щоб мати єдину точку
+combined-селектора над кількома зрізами стану (порушує формальний
+напрямок залежностей FSD "нижчий шар не знає про вищий"); а
+`shared/lib/ticketStops.ts` імпортує типи `Ticket`/`StopsCount` з
+`entities`, бо сигнатура хелпера (`(ticket: Ticket) => StopsCount`) цього
+прямо вимагає.
+
+### Запуск локально
+
+```bash
+npm install
+npm run dev            # дев-сервер
+npm test                # тести (Vitest)
+npm run lint:styles     # лінт SCSS (stylelint)
+npm run lint            # лінт коду (oxlint)
+npm run build            # продакшн-збірка
+```
+
+### Живий приклад
+
+https://soularis109.github.io/transfers/
