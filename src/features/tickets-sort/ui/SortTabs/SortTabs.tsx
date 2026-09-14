@@ -1,19 +1,27 @@
 import './SortTabs.scss'
+import { useAppDispatch, useAppSelector } from '../../../../shared/lib/hooks'
+import { setSort } from '../../model/sortSlice'
+import { selectActiveSort } from '../../model/selectors'
+import type { SortKey } from '../../../../entities/ticket/model/types'
 
-const TABS = [
+const TABS: { key: SortKey; label: string }[] = [
   { key: 'cheapest', label: 'Найдешевший' },
   { key: 'fastest', label: 'Найшвидший' },
   { key: 'optimal', label: 'Оптимальний' },
-] as const
+]
 
 function SortTabs() {
+  const dispatch = useAppDispatch()
+  const activeSort = useAppSelector(selectActiveSort)
+
   return (
     <div className="sort-tabs">
-      {TABS.map((tab, index) => (
+      {TABS.map((tab) => (
         <button
           key={tab.key}
           type="button"
-          className={`sort-tabs__tab${index === 0 ? ' sort-tabs__tab--active' : ''}`}
+          className={`sort-tabs__tab${tab.key === activeSort ? ' sort-tabs__tab--active' : ''}`}
+          onClick={() => dispatch(setSort(tab.key))}
         >
           {tab.label}
         </button>

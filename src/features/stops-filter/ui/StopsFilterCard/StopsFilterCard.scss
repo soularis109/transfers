@@ -21,6 +21,7 @@
     height: v.$filter-row-height;
     padding-inline: v.$space-20;
     margin-inline: calc(v.$space-20 * -1);
+    cursor: pointer;
     transition: background-color v.$transition-fast;
 
     &:hover {

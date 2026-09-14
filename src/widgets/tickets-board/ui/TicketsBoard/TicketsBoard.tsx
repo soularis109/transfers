@@ -1,19 +1,26 @@
 import './TicketsBoard.scss'
-import { useAppSelector } from '../../../../shared/lib/hooks'
+import { useAppDispatch, useAppSelector } from '../../../../shared/lib/hooks'
 import {
-  selectAllTickets,
+  selectVisibleTickets,
+  selectFilteredSortedTickets,
   selectTicketsStatus,
   selectTicketsError,
 } from '../../../../entities/ticket/model/selectors'
-import { PAGE_SIZE } from '../../../../entities/ticket/model/types'
+import { selectVisibleCount } from '../../../../features/tickets-pagination/model/selectors'
+import { showMore } from '../../../../features/tickets-pagination/model/paginationSlice'
 import TicketCard from '../../../../entities/ticket/ui/TicketCard'
 import SortTabs from '../../../../features/tickets-sort/ui/SortTabs'
 import Button from '../../../../shared/ui/Button'
 
 function TicketsBoard() {
-  const tickets = useAppSelector(selectAllTickets)
+  const dispatch = useAppDispatch()
   const status = useAppSelector(selectTicketsStatus)
   const error = useAppSelector(selectTicketsError)
+  const visibleTickets = useAppSelector(selectVisibleTickets)
+  const filteredCount = useAppSelector(selectFilteredSortedTickets).length
+  const visibleCount = useAppSelector(selectVisibleCount)
+
+  const hasMore = visibleCount < filteredCount
 
   return (
     <div className="tickets-board">
@@ -25,13 +32,17 @@ function TicketsBoard() {
       ) : (
         <>
           <ul className="tickets-board__list">
-            {tickets.slice(0, PAGE_SIZE).map((ticket) => (
+            {visibleTickets.map((ticket) => (
               <li key={ticket.id}>
                 <TicketCard ticket={ticket} />
               </li>
             ))}
           </ul>
-          <Button className="tickets-board__more">Показати ще 5 квитків</Button>
+          {hasMore && (
+            <Button className="tickets-board__more" onClick={() => dispatch(showMore())}>
+              Показати ще 5 квитків
+            </Button>
+          )}
         </>
       )}
     </div>
