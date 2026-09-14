@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import filterReducer, { toggleStop, selectAll, clearAll } from './filterSlice'
+import filterReducer, { toggleStop, selectAll, clearAll, setStops } from './filterSlice'
 
 const initialState = { selectedStops: [] }
 
@@ -26,5 +26,15 @@ describe('filterSlice', () => {
   it('clearAll empties the selection', () => {
     const state = filterReducer({ selectedStops: [0, 1, 2, 3] }, clearAll())
     expect(state.selectedStops).toEqual([])
+  })
+
+  it('setStops replaces the selection with the given values', () => {
+    const state = filterReducer({ selectedStops: [0] }, setStops([1, 2]))
+    expect(state.selectedStops).toEqual([1, 2])
+  })
+
+  it('setStops deduplicates the payload', () => {
+    const state = filterReducer(initialState, setStops([1, 1, 2]))
+    expect(state.selectedStops).toEqual([1, 2])
   })
 })

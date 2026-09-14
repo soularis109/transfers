@@ -24,4 +24,31 @@
     flex-direction: column;
     gap: v.$space-20;
   }
+
+  &__more {
+    align-self: center;
+  }
+
+  &__skeleton {
+    height: v.$card-height;
+    border-radius: v.$radius-md;
+    background: linear-gradient(
+      90deg,
+      v.$color-surface 25%,
+      v.$color-border 50%,
+      v.$color-surface 75%
+    );
+    background-size: 200% 100%;
+    animation: tickets-board-skeleton-pulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes tickets-board-skeleton-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }

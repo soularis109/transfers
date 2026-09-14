@@ -1,13 +1,20 @@
+import { useEffect } from 'react'
 import './TicketsBoard.scss'
-import { useAppDispatch, useAppSelector } from '../../../../shared/lib/hooks'
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
 import {
   selectVisibleTickets,
-  selectFilteredSortedTickets,
+  selectFilteredTicketsCount,
   selectTicketsStatus,
   selectTicketsError,
-} from '../../../../entities/ticket/model/selectors'
-import { selectVisibleCount } from '../../../../features/tickets-pagination/model/selectors'
-import { showMore } from '../../../../features/tickets-pagination/model/paginationSlice'
+  PAGE_SIZE,
+} from '../../../../entities/ticket/model'
+import { selectSelectedStops } from '../../../../features/stops-filter/model'
+import { selectActiveSort } from '../../../../features/tickets-sort/model'
+import {
+  selectVisibleCount,
+  showMore,
+  resetPagination,
+} from '../../../../features/tickets-pagination/model'
 import TicketCard from '../../../../entities/ticket/ui/TicketCard'
 import SortTabs from '../../../../features/tickets-sort/ui/SortTabs'
 import Button from '../../../../shared/ui/Button'
@@ -17,16 +24,26 @@ function TicketsBoard() {
   const status = useAppSelector(selectTicketsStatus)
   const error = useAppSelector(selectTicketsError)
   const visibleTickets = useAppSelector(selectVisibleTickets)
-  const filteredCount = useAppSelector(selectFilteredSortedTickets).length
+  const filteredCount = useAppSelector(selectFilteredTicketsCount)
   const visibleCount = useAppSelector(selectVisibleCount)
+  const selectedStops = useAppSelector(selectSelectedStops)
+  const activeSort = useAppSelector(selectActiveSort)
 
   const hasMore = visibleCount < filteredCount
+
+  useEffect(() => {
+    dispatch(resetPagination())
+  }, [dispatch, selectedStops, activeSort])
 
   return (
     <div className="tickets-board">
       <SortTabs />
       {status === 'loading' || status === 'idle' ? (
-        <p className="tickets-board__status">Завантаження…</p>
+        <ul className="tickets-board__list" aria-label="Завантаження…">
+          {Array.from({ length: PAGE_SIZE }, (_, index) => (
+            <li key={index} className="tickets-board__skeleton" />
+          ))}
+        </ul>
       ) : status === 'failed' ? (
         <p className="tickets-board__status">Помилка: {error}</p>
       ) : filteredCount === 0 ? (
@@ -44,7 +61,7 @@ function TicketsBoard() {
           </ul>
           {hasMore && (
             <Button className="tickets-board__more" onClick={() => dispatch(showMore())}>
-              Показати ще 5 квитків
+              Показати ще {Math.min(PAGE_SIZE, filteredCount - visibleCount)} квитків
             </Button>
           )}
         </>

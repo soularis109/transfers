@@ -25,13 +25,9 @@
   }
 
   &__carrier {
-    padding: v.$space-4 v.$space-8;
-    border: 1px solid v.$color-border;
-    border-radius: v.$radius-sm;
-    color: v.$color-text-muted;
-    font-size: v.$font-size-caps;
-    letter-spacing: v.$letter-spacing-caps;
-    text-transform: uppercase;
+    width: 119px;
+    height: 41px;
+    object-fit: cover;
   }
 
   &__segments {
@@ -64,7 +60,7 @@
   }
 
   &__value {
-    font-size: v.$font-size-value;
+    font-size: v.$font-size-title;
     font-weight: v.$font-weight-semibold;
     color: v.$color-text;
   }

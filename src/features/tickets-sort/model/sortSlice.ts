@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { SortKey } from '../../../entities/ticket/model/types'
+import type { SortKey } from '../../../entities/ticket/model'
 
 interface SortState {
   activeSort: SortKey

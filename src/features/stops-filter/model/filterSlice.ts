@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { StopsCount } from '../../../entities/ticket/model/types'
+import type { StopsCount } from '../../../entities/ticket/model'
 
 interface FilterState {
   selectedStops: StopsCount[]
@@ -22,8 +22,11 @@ const filterSlice = createSlice({
     clearAll: (state) => {
       state.selectedStops = []
     },
+    setStops: (state, action: PayloadAction<StopsCount[]>) => {
+      state.selectedStops = Array.from(new Set(action.payload))
+    },
   },
 })
 
-export const { toggleStop, selectAll, clearAll } = filterSlice.actions
+export const { toggleStop, selectAll, clearAll, setStops } = filterSlice.actions
 export default filterSlice.reducer

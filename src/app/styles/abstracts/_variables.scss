@@ -33,8 +33,8 @@ $font-family-base:
   'Segoe UI',
   roboto,
   sans-serif;
-$font-size-price: 28px; // "13 300 $" — виміряна висота цифр 21px
-$font-size-value: 16px; // "10:45 – 08:00", "34г 15хв", "HKG"
+$font-size-price: 24px; // "13 300 $" — виміряна висота цифр 21px
+$font-size-value: 14px; // "10:45 – 08:00", "34г 15хв", "HKG"
 $font-size-title: 14px; // "КІЛЬКІСТЬ ПЕРЕСАДОК"
 $font-size-label: 13px; // підпис біля чекбокса
 $font-size-caps: 12px; // "В ДОРОЗІ", таби, кнопка
@@ -47,7 +47,7 @@ $letter-spacing-button: 1px;
 $line-height-base: 1.4;
 
 // ─── Розкладка ──────────────────────────────────────────────────────────────
-$layout-max-width: 774px; // 232 (фільтр) + 40 (проміжок) + 502 (список)
+$layout-max-width: 960px; // 232 (фільтр) + 40 (проміжок) + 502 (список)
 $layout-sidebar: 232px;
 $layout-gutter: 40px;
 $logo-size: 68px;
@@ -66,6 +66,7 @@ $space-16: 16px;
 $space-20: 20px;
 $space-24: 24px;
 $space-40: 40px;
+$space-93: 93px;
 $radius-sm: 2px; // чекбокс
 $radius-md: 5px; // картки, таби, кнопка, фільтр
 

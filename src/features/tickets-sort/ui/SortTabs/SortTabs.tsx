@@ -1,8 +1,7 @@
 import './SortTabs.scss'
-import { useAppDispatch, useAppSelector } from '../../../../shared/lib/hooks'
-import { setSort } from '../../model/sortSlice'
-import { selectActiveSort } from '../../model/selectors'
-import type { SortKey } from '../../../../entities/ticket/model/types'
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
+import { setSort, selectActiveSort } from '../../model'
+import type { SortKey } from '../../../../entities/ticket/model'
 
 const TABS: { key: SortKey; label: string }[] = [
   { key: 'cheapest', label: 'Найдешевший' },

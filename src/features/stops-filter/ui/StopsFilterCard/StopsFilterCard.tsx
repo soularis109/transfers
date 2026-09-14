@@ -1,9 +1,15 @@
+import type { KeyboardEvent } from 'react'
 import './StopsFilterCard.scss'
-import { useAppDispatch, useAppSelector } from '../../../../shared/lib/hooks'
-import { toggleStop, selectAll, clearAll } from '../../model/filterSlice'
-import { selectSelectedStops, selectIsAllStopsSelected } from '../../model/selectors'
-import { STOPS_OPTIONS } from '../../../../entities/ticket/model/types'
-import type { StopsCount } from '../../../../entities/ticket/model/types'
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
+import {
+  toggleStop,
+  selectAll,
+  clearAll,
+  selectSelectedStops,
+  selectIsAllStopsSelected,
+} from '../../model'
+import { STOPS_OPTIONS } from '../../../../entities/ticket/model'
+import type { StopsCount } from '../../../../entities/ticket/model'
 
 type RowValue = StopsCount | 'all'
 
@@ -40,6 +46,13 @@ function StopsFilterCard() {
     }
   }
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLLIElement>, value: RowValue) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      handleToggle(value)
+    }
+  }
+
   return (
     <div className="stops-filter">
       <h2 className="stops-filter__title">Кількість пересадок</h2>
@@ -52,7 +65,9 @@ function StopsFilterCard() {
               className="stops-filter__row"
               role="checkbox"
               aria-checked={checked}
+              tabIndex={0}
               onClick={() => handleToggle(row.value)}
+              onKeyDown={(event) => handleKeyDown(event, row.value)}
             >
               <span
                 className={`stops-filter__checkbox${

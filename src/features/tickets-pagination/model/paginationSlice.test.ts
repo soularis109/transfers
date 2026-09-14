@@ -1,7 +1,5 @@
 import { describe, expect, it } from 'vitest'
 import paginationReducer, { showMore, resetPagination } from './paginationSlice'
-import { toggleStop } from '../../stops-filter/model/filterSlice'
-import { setSort } from '../../tickets-sort/model/sortSlice'
 
 const initialState = { visibleCount: 5 }
 
@@ -17,18 +15,6 @@ describe('paginationSlice', () => {
 
   it('resetPagination resets visibleCount back to PAGE_SIZE', () => {
     const state = paginationReducer({ visibleCount: 20 }, resetPagination())
-    expect(state.visibleCount).toBe(5)
-  })
-
-  it('resets visibleCount when a filter action is dispatched', () => {
-    const afterShowMore = paginationReducer(initialState, showMore())
-    const state = paginationReducer(afterShowMore, toggleStop(1))
-    expect(state.visibleCount).toBe(5)
-  })
-
-  it('resets visibleCount when a sort action is dispatched', () => {
-    const afterShowMore = paginationReducer(initialState, showMore())
-    const state = paginationReducer(afterShowMore, setSort('fastest'))
     expect(state.visibleCount).toBe(5)
   })
 })

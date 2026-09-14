@@ -23,17 +23,17 @@ npm run dev
 
 ## Скрипти
 
-| Команда | Опис |
-| --- | --- |
-| `npm run dev` | Запуск дев-сервера |
-| `npm run build` | Продакшн-збірка |
-| `npm run preview` | Перегляд збірки локально |
-| `npm run lint` | Лінт коду |
-| `npm run lint:styles` | Лінт стилів (SCSS) |
-| `npm run lint:styles:fix` | Лінт стилів з автофіксом |
-| `npm run format` | Форматування коду Prettier |
-| `npm test` | Запуск тестів (Vitest) |
-| `npm run test:watch` | Тести у watch-режимі |
+| Команда                   | Опис                       |
+| ------------------------- | -------------------------- |
+| `npm run dev`             | Запуск дев-сервера         |
+| `npm run build`           | Продакшн-збірка            |
+| `npm run preview`         | Перегляд збірки локально   |
+| `npm run lint`            | Лінт коду                  |
+| `npm run lint:styles`     | Лінт стилів (SCSS)         |
+| `npm run lint:styles:fix` | Лінт стилів з автофіксом   |
+| `npm run format`          | Форматування коду Prettier |
+| `npm test`                | Запуск тестів (Vitest)     |
+| `npm run test:watch`      | Тести у watch-режимі       |
 
 ## Рішення
 

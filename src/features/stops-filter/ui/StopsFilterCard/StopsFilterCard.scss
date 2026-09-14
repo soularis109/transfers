@@ -7,8 +7,8 @@
   padding: v.$space-20;
 
   &__title {
-    font-size: v.$font-size-title;
-    font-weight: v.$font-weight-semibold;
+    font-size: v.$font-size-label;
+    font-weight: v.$font-weight-regular;
     color: v.$color-text-strong;
     text-transform: uppercase;
     margin-bottom: v.$space-16;
@@ -38,7 +38,6 @@
     flex-shrink: 0;
     border: 1px solid v.$color-border-control;
     border-radius: v.$radius-sm;
-    color: v.$color-text-inverse;
     transition: border-color v.$transition-fast;
 
     &:hover {
@@ -46,8 +45,9 @@
     }
 
     &--checked {
-      background-color: v.$color-primary;
+      background-color: v.$color-surface;
       border-color: v.$color-primary;
+      color: v.$color-primary;
     }
   }
 

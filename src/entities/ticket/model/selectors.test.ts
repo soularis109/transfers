@@ -1,8 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import {
-  selectFilteredSortedTickets,
-  selectVisibleTickets,
-} from './selectors'
+import { selectFilteredSortedTickets, selectVisibleTickets } from './selectors'
 import type { RootState } from '../../../app/store'
 import type { Ticket } from './types'
 
@@ -75,29 +72,17 @@ describe('selectFilteredSortedTickets', () => {
 
   it('sorts by price for "cheapest"', () => {
     const result = selectFilteredSortedTickets(makeState({ activeSort: 'cheapest' }))
-    expect(result.map((t) => t.id)).toEqual([
-      'one-stop-cheap',
-      'two-stop-fast',
-      'direct-expensive',
-    ])
+    expect(result.map((t) => t.id)).toEqual(['one-stop-cheap', 'two-stop-fast', 'direct-expensive'])
   })
 
   it('sorts by total duration for "fastest"', () => {
     const result = selectFilteredSortedTickets(makeState({ activeSort: 'fastest' }))
-    expect(result.map((t) => t.id)).toEqual([
-      'two-stop-fast',
-      'direct-expensive',
-      'one-stop-cheap',
-    ])
+    expect(result.map((t) => t.id)).toEqual(['two-stop-fast', 'direct-expensive', 'one-stop-cheap'])
   })
 
-  it('sorts by duration, then stops, then price for "optimal"', () => {
+  it('sorts by weighted price/duration balance for "optimal"', () => {
     const result = selectFilteredSortedTickets(makeState({ activeSort: 'optimal' }))
-    expect(result.map((t) => t.id)).toEqual([
-      'two-stop-fast',
-      'direct-expensive',
-      'one-stop-cheap',
-    ])
+    expect(result.map((t) => t.id)).toEqual(['two-stop-fast', 'one-stop-cheap', 'direct-expensive'])
   })
 })
 

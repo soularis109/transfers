@@ -1,0 +1,19 @@
+// src/app/styles/base/_fonts.scss
+// Open Sans (variable, latin subset) — самохостинг замість Google Fonts CDN.
+// Один файл покриває обидві ваги через вісь wght, як і в офіційному CSS Google Fonts.
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../../shared/assets/fonts/open-sans-variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../../../shared/assets/fonts/open-sans-variable.woff2') format('woff2');
+}

@@ -61,20 +61,14 @@ describe('ticketsSlice', () => {
   })
 
   it('sets status to succeeded and fills items on fulfilled', () => {
-    const state = ticketsReducer(
-      initialState,
-      fetchTickets.fulfilled(mockTickets, 'requestId'),
-    )
+    const state = ticketsReducer(initialState, fetchTickets.fulfilled(mockTickets, 'requestId'))
     expect(state.status).toBe('succeeded')
     expect(state.items).toEqual(mockTickets)
   })
 
   it('sets status to failed and fills error on rejected', () => {
     const error = new Error('Failed to load tickets: 500')
-    const state = ticketsReducer(
-      initialState,
-      fetchTickets.rejected(error, 'requestId'),
-    )
+    const state = ticketsReducer(initialState, fetchTickets.rejected(error, 'requestId'))
     expect(state.status).toBe('failed')
     expect(state.error).toBe('Failed to load tickets: 500')
   })

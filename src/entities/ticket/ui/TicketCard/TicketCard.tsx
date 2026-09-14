@@ -1,8 +1,9 @@
 import './TicketCard.scss'
-import type { Ticket } from '../../model/types'
+import type { Ticket } from '../../model'
 import { formatTime } from '../../../../shared/lib/formatTime'
 import { formatDuration } from '../../../../shared/lib/formatDuration'
 import { pluralizeStops } from '../../../../shared/lib/pluralizeStops'
+import a4eLogo from '../../../../shared/assets/images/a4e.webp'
 
 const priceFormatter = new Intl.NumberFormat('uk-UA')
 
@@ -15,11 +16,11 @@ function TicketCard({ ticket }: TicketCardProps) {
     <article className="ticket-card">
       <div className="ticket-card__header">
         <span className="ticket-card__price">{priceFormatter.format(ticket.price)} $</span>
-        <span className="ticket-card__carrier">{ticket.carrier}</span>
+        <img className="ticket-card__carrier" src={a4eLogo} alt="A4E" />
       </div>
       <div className="ticket-card__segments">
-        {ticket.segments.map((segment, index) => (
-          <div className="ticket-card__segment" key={index}>
+        {ticket.segments.map((segment) => (
+          <div className="ticket-card__segment" key={segment.origin + segment.destination}>
             <div className="ticket-card__col">
               <span className="ticket-card__label">
                 {segment.origin} – {segment.destination}
