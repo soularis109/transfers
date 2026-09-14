@@ -39,6 +39,11 @@
     border: 1px solid v.$color-border-control;
     border-radius: v.$radius-sm;
     color: v.$color-text-inverse;
+    transition: border-color v.$transition-fast;
+
+    &:hover {
+      border-color: v.$color-primary;
+    }
 
     &--checked {
       background-color: v.$color-primary;
