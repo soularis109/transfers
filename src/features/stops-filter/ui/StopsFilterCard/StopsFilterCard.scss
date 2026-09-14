@@ -1,0 +1,57 @@
+@use '../../../../app/styles/abstracts/variables' as v;
+
+.stops-filter {
+  background: v.$color-surface;
+  border-radius: v.$radius-md;
+  box-shadow: v.$shadow-card;
+  padding: v.$space-20;
+
+  &__title {
+    font-size: v.$font-size-title;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-text-strong;
+    text-transform: uppercase;
+    margin-bottom: v.$space-16;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: v.$space-12;
+    height: v.$filter-row-height;
+    padding-inline: v.$space-20;
+    margin-inline: calc(v.$space-20 * -1);
+    transition: background-color v.$transition-fast;
+
+    &:hover {
+      background-color: v.$color-row-hover;
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: v.$checkbox-size;
+    height: v.$checkbox-size;
+    flex-shrink: 0;
+    border: 1px solid v.$color-border-control;
+    border-radius: v.$radius-sm;
+    color: v.$color-text-inverse;
+
+    &--checked {
+      background-color: v.$color-primary;
+      border-color: v.$color-primary;
+    }
+  }
+
+  &__check-icon {
+    width: 60%;
+    height: 60%;
+  }
+
+  &__label {
+    font-size: v.$font-size-label;
+    color: v.$color-text;
+  }
+}

@@ -1,0 +1,23 @@
+@use '../../../app/styles/abstracts/variables' as v;
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: v.$logo-size;
+  height: v.$logo-size;
+  border-radius: 50%;
+  background: linear-gradient(135deg, v.$color-primary-light, v.$color-accent);
+  box-shadow: v.$shadow-logo;
+  transition: box-shadow v.$transition-base;
+
+  &:hover {
+    box-shadow: v.$shadow-logo-hover;
+  }
+
+  &__icon {
+    width: 50%;
+    height: 50%;
+    color: v.$color-text-inverse;
+  }
+}

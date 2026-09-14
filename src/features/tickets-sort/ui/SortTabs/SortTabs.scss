@@ -1,0 +1,38 @@
+@use '../../../../app/styles/abstracts/variables' as v;
+
+.sort-tabs {
+  display: flex;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-md;
+  overflow: hidden;
+
+  &__tab {
+    flex: 1;
+    height: v.$tabs-height;
+    background: v.$color-surface;
+    color: v.$color-text;
+    font-size: v.$font-size-caps;
+    font-weight: v.$font-weight-semibold;
+    letter-spacing: v.$letter-spacing-caps;
+    text-transform: uppercase;
+    border-right: 1px solid v.$color-border;
+    transition: background-color v.$transition-fast;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:hover {
+      background-color: v.$color-row-hover;
+    }
+
+    &--active {
+      background: v.$color-primary;
+      color: v.$color-text-inverse;
+
+      &:hover {
+        background: v.$color-primary;
+      }
+    }
+  }
+}

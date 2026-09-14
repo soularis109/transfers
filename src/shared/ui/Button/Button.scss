@@ -1,0 +1,18 @@
+@use '../../../app/styles/abstracts/variables' as v;
+
+.button {
+  width: 100%;
+  height: v.$button-height;
+  background: v.$color-primary;
+  color: v.$color-text-inverse;
+  font-size: v.$font-size-caps;
+  font-weight: v.$font-weight-semibold;
+  letter-spacing: v.$letter-spacing-button;
+  text-transform: uppercase;
+  border-radius: v.$radius-md;
+  transition: background-color v.$transition-fast;
+
+  &:hover {
+    background: v.$color-primary-dark;
+  }
+}

@@ -1,0 +1,71 @@
+@use '../../../../app/styles/abstracts/variables' as v;
+
+.ticket-card {
+  background: v.$color-surface;
+  border-radius: v.$radius-md;
+  box-shadow: v.$shadow-card;
+  padding: v.$space-20;
+  transition: box-shadow v.$transition-base;
+
+  &:hover {
+    box-shadow: v.$shadow-card-hover;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: v.$space-16;
+  }
+
+  &__price {
+    font-size: v.$font-size-price;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-primary;
+  }
+
+  &__carrier {
+    padding: v.$space-4 v.$space-8;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-sm;
+    color: v.$color-text-muted;
+    font-size: v.$font-size-caps;
+    letter-spacing: v.$letter-spacing-caps;
+    text-transform: uppercase;
+  }
+
+  &__segments {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-12;
+  }
+
+  &__segment {
+    display: grid;
+    grid-template-columns: 35% 35% 30%;
+
+    @media (max-width: v.$bp-mobile) {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: v.$space-8;
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-4;
+  }
+
+  &__label {
+    font-size: v.$font-size-caps;
+    letter-spacing: v.$letter-spacing-caps;
+    text-transform: uppercase;
+    color: v.$color-text-muted;
+  }
+
+  &__value {
+    font-size: v.$font-size-value;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-text;
+  }
+}
