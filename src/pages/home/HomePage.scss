@@ -1,0 +1,35 @@
+@use '../../app/styles/abstracts/variables' as v;
+
+.home-page {
+  max-width: v.$layout-max-width;
+  margin-inline: auto;
+  padding: v.$space-40 v.$space-16;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: v.$space-40;
+  }
+
+  &__layout {
+    display: flex;
+    gap: v.$layout-gutter;
+
+    @media (max-width: v.$bp-tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__sidebar {
+    flex: 0 0 v.$layout-sidebar;
+
+    @media (max-width: v.$bp-tablet) {
+      flex-basis: auto;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+}

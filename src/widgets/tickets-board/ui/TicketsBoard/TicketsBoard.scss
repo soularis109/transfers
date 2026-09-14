@@ -1,0 +1,18 @@
+@use '../../../../app/styles/abstracts/variables' as v;
+
+.tickets-board {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-20;
+
+  &__status {
+    font-size: v.$font-size-value;
+    color: v.$color-text;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-20;
+  }
+}
