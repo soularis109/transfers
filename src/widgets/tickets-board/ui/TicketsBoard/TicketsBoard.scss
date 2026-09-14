@@ -10,6 +10,15 @@
     color: v.$color-text;
   }
 
+  &__empty {
+    background: v.$color-surface;
+    border-radius: v.$radius-md;
+    box-shadow: v.$shadow-card;
+    padding: v.$space-20;
+    color: v.$color-text;
+    font-size: v.$font-size-value;
+  }
+
   &__list {
     display: flex;
     flex-direction: column;

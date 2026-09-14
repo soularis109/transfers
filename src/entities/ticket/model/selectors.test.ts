@@ -68,6 +68,11 @@ describe('selectFilteredSortedTickets', () => {
     expect(result.map((t) => t.id)).toEqual(['one-stop-cheap'])
   })
 
+  it('returns an empty array when no ticket matches the selected stops', () => {
+    const result = selectFilteredSortedTickets(makeState({ selectedStops: [3] }))
+    expect(result).toEqual([])
+  })
+
   it('sorts by price for "cheapest"', () => {
     const result = selectFilteredSortedTickets(makeState({ activeSort: 'cheapest' }))
     expect(result.map((t) => t.id)).toEqual([

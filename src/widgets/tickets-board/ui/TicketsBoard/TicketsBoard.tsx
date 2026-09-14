@@ -29,6 +29,10 @@ function TicketsBoard() {
         <p className="tickets-board__status">Завантаження…</p>
       ) : status === 'failed' ? (
         <p className="tickets-board__status">Помилка: {error}</p>
+      ) : filteredCount === 0 ? (
+        <p className="tickets-board__empty">
+          За обраними фільтрами квитків не знайдено. Спробуйте зняти частину фільтрів.
+        </p>
       ) : (
         <>
           <ul className="tickets-board__list">
