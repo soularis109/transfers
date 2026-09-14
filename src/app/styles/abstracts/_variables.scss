@@ -1,5 +1,4 @@
 // src/app/styles/abstracts/_variables.scss
-//
 // Значення зняті вимірюванням макета попіксельно.
 // Шрифт і кегль звірити в Figma: клік по текстовому шарі -> панель Design.
 
@@ -15,7 +14,6 @@ $color-text: #4a4a4a; // основний текст: значення, неак
 $color-text-muted: #a0b0b9; // підписи-капси: "В ДОРОЗІ", "1 ПЕРЕСАДКА"
 $color-text-strong: #211c1c; // заголовок "КІЛЬКІСТЬ ПЕРЕСАДОК"
 $color-text-inverse: #fff;
-
 $color-border: #dfe5ec; // рамка й роздільники табів
 $color-border-control: #9abbce; // рамка невибраного чекбокса
 $color-row-hover: #f1fcff; // підсвітка рядка фільтра на hover
@@ -35,7 +33,6 @@ $font-family-base:
   'Segoe UI',
   roboto,
   sans-serif;
-
 $font-size-price: 28px; // "13 300 $" — виміряна висота цифр 21px
 $font-size-value: 16px; // "10:45 – 08:00", "34г 15хв", "HKG"
 $font-size-title: 14px; // "КІЛЬКІСТЬ ПЕРЕСАДОК"
@@ -45,17 +42,14 @@ $font-size-caps: 12px; // "В ДОРОЗІ", таби, кнопка
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
-
 $letter-spacing-caps: 0.5px;
 $letter-spacing-button: 1px;
-
 $line-height-base: 1.4;
 
 // ─── Розкладка ──────────────────────────────────────────────────────────────
 $layout-max-width: 774px; // 232 (фільтр) + 40 (проміжок) + 502 (список)
 $layout-sidebar: 232px;
 $layout-gutter: 40px;
-
 $logo-size: 68px;
 $tabs-height: 48px;
 $card-height: 184px; // орієнтир, реальну задає контент
@@ -72,7 +66,6 @@ $space-16: 16px;
 $space-20: 20px;
 $space-24: 24px;
 $space-40: 40px;
-
 $radius-sm: 2px; // чекбокс
 $radius-md: 5px; // картки, таби, кнопка, фільтр
 
