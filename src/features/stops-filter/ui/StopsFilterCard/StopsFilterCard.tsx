@@ -7,40 +7,28 @@ import {
   clearAll,
   selectSelectedStops,
   selectIsAllStopsSelected,
+  ALL_STOPS_VALUE,
+  STOPS_ROWS,
 } from '../../model'
-import { STOPS_OPTIONS } from '../../../../entities/ticket/model'
-import type { StopsCount } from '../../../../entities/ticket/model'
-import { pluralizeStops } from '../../../../shared/lib/pluralizeStops'
-
-type RowValue = StopsCount | 'all'
-
-interface StopsRow {
-  value: RowValue
-  label: string
-}
-
-const ROWS: StopsRow[] = [
-  { value: 'all', label: 'Всі' },
-  ...STOPS_OPTIONS.map((option) => ({ value: option, label: pluralizeStops(option) })),
-]
+import type { StopsRowValue } from '../../model'
 
 function StopsFilterCard() {
   const dispatch = useAppDispatch()
   const selectedStops = useAppSelector(selectSelectedStops)
   const isAllSelected = useAppSelector(selectIsAllStopsSelected)
 
-  const isChecked = (value: RowValue) =>
-    value === 'all' ? isAllSelected : selectedStops.includes(value)
+  const isChecked = (value: StopsRowValue) =>
+    value === ALL_STOPS_VALUE ? isAllSelected : selectedStops.includes(value)
 
-  const handleToggle = (value: RowValue) => {
-    if (value === 'all') {
+  const handleToggle = (value: StopsRowValue) => {
+    if (value === ALL_STOPS_VALUE) {
       dispatch(isAllSelected ? clearAll() : selectAll())
     } else {
       dispatch(toggleStop(value))
     }
   }
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLLIElement>, value: RowValue) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLLIElement>, value: StopsRowValue) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
       handleToggle(value)
@@ -51,7 +39,7 @@ function StopsFilterCard() {
     <div className="stops-filter">
       <h2 className="stops-filter__title">Кількість пересадок</h2>
       <ul className="stops-filter__list">
-        {ROWS.map((row) => {
+        {STOPS_ROWS.map((row) => {
           const checked = isChecked(row.value)
           return (
             <li

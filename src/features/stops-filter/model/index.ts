@@ -6,3 +6,4 @@ export {
   setStops,
 } from './filterSlice'
 export * from './selectors'
+export * from './rows'
