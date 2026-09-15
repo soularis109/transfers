@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { StopsCount } from '../../../entities/ticket/model'
+import { STOPS_OPTIONS, type StopsCount } from '../../../entities/ticket/model'
 
 interface FilterState {
   selectedStops: StopsCount[]
@@ -17,7 +17,7 @@ const filterSlice = createSlice({
       else state.selectedStops.splice(index, 1)
     },
     selectAll: (state) => {
-      state.selectedStops = [0, 1, 2, 3]
+      state.selectedStops = [...STOPS_OPTIONS]
     },
     clearAll: (state) => {
       state.selectedStops = []
