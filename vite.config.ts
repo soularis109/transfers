@@ -1,4 +1,5 @@
 /// <reference types="vitest/config" />
+import { fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
@@ -6,6 +7,11 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   base: '/transfers/',
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/shared/lib/test/setup.ts'],
