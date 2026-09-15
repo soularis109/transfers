@@ -5,6 +5,7 @@ import {
   SORT_COMPARATOR_FACTORIES,
   PAGE_SIZE,
 } from '@/entities/ticket/model'
+import type { TicketsStatus } from '@/entities/ticket/model'
 import { getTicketStopsCount } from '@/entities/ticket/lib'
 import { selectSelectedStops } from '@/features/stops-filter/model'
 import { selectActiveSort } from '@/features/tickets-sort/model'
@@ -49,7 +50,7 @@ export type BoardStatus = (typeof BOARD_STATUSES)[number]
 
 export const selectBoardStatus = createSelector(
   [selectTicketsStatus, selectFilteredTicketsCount],
-  (ticketsStatus, filteredCount): BoardStatus => {
+  (ticketsStatus: TicketsStatus, filteredCount): BoardStatus => {
     switch (ticketsStatus) {
       case 'idle':
       case 'loading':

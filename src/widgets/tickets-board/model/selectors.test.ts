@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { selectFilteredSortedTickets, selectVisibleTickets } from './selectors'
 import type { RootState } from '@/app/store'
-import type { Ticket } from '@/entities/ticket/model'
+import type { Ticket, TicketsStatus } from '@/entities/ticket/model'
 
 function makeTicket(
   id: string,
@@ -47,7 +47,7 @@ function makeState(
   }> = {},
 ): RootState {
   return {
-    tickets: { items: tickets, status: 'succeeded', error: null },
+    tickets: { items: tickets, status: 'succeeded' satisfies TicketsStatus, error: null },
     stopsFilter: { selectedStops: overrides.selectedStops ?? [] },
     ticketsSort: { activeSort: overrides.activeSort ?? 'cheapest' },
     ticketsPagination: { visibleCount: overrides.visibleCount ?? 5 },
