@@ -3,9 +3,8 @@ import type { Ticket } from '../../model'
 import { formatTime } from '../../../../shared/lib/formatTime'
 import { formatDuration } from '../../../../shared/lib/formatDuration'
 import { pluralizeStops } from '../../../../shared/lib/pluralizeStops'
+import { formatPrice } from '../../../../shared/lib/formatPrice'
 import a4eLogo from '../../../../shared/assets/images/a4e.webp'
-
-const priceFormatter = new Intl.NumberFormat('uk-UA')
 
 interface TicketCardProps {
   ticket: Ticket
@@ -15,7 +14,7 @@ function TicketCard({ ticket }: TicketCardProps) {
   return (
     <article className="ticket-card">
       <div className="ticket-card__header">
-        <span className="ticket-card__price">{priceFormatter.format(ticket.price)} $</span>
+        <span className="ticket-card__price">{formatPrice(ticket.price)}</span>
         <img className="ticket-card__carrier" src={a4eLogo} alt="A4E" />
       </div>
       <div className="ticket-card__segments">
