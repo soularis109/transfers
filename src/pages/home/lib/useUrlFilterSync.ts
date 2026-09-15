@@ -6,6 +6,9 @@ import type { SortKey, StopsCount } from '@/entities/ticket/model'
 import { setStops, selectSelectedStops } from '@/features/stops-filter/model'
 import { setSort, selectActiveSort } from '@/features/tickets-sort/model'
 
+const STOPS_PARAM = 'stops'
+const SORT_PARAM = 'sort'
+
 export function useUrlFilterSync() {
   const dispatch = useAppDispatch()
   const selectedStops = useAppSelector(selectSelectedStops)
@@ -17,7 +20,7 @@ export function useUrlFilterSync() {
     if (didApplyUrlState.current) return
     didApplyUrlState.current = true
 
-    const stopsParam = searchParams.get('stops')
+    const stopsParam = searchParams.get(STOPS_PARAM)
     if (stopsParam) {
       const stops = stopsParam
         .split(',')
@@ -27,7 +30,7 @@ export function useUrlFilterSync() {
       dispatch(setStops(stops))
     }
 
-    const sortParam = searchParams.get('sort')
+    const sortParam = searchParams.get(SORT_PARAM)
     if (sortParam && SORT_KEYS.includes(sortParam as SortKey)) {
       dispatch(setSort(sortParam as SortKey))
     }
@@ -36,9 +39,9 @@ export function useUrlFilterSync() {
   useEffect(() => {
     const params = new URLSearchParams()
     if (selectedStops.length > 0) {
-      params.set('stops', selectedStops.join(','))
+      params.set(STOPS_PARAM, selectedStops.join(','))
     }
-    params.set('sort', activeSort)
+    params.set(SORT_PARAM, activeSort)
     setSearchParams(params, { replace: true })
   }, [selectedStops, activeSort, setSearchParams])
 }
