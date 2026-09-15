@@ -1,7 +1,7 @@
 import './SortTabs.scss'
-import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
+import { useAppDispatch, useAppSelector } from '@/app/hooks'
 import { setSort, selectActiveSort } from '../../model'
-import { SORT_LABELS, SORT_KEYS } from '../../../../entities/ticket/model'
+import { SORT_LABELS, SORT_KEYS } from '@/entities/ticket/model'
 
 function SortTabs() {
   const dispatch = useAppDispatch()

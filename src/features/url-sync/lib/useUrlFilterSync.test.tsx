@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { useUrlFilterSync } from './useUrlFilterSync'
-import { stopsFilterReducer, toggleStop } from '../../stops-filter/model'
-import { ticketsSortReducer, setSort } from '../../tickets-sort/model'
+import { stopsFilterReducer, toggleStop } from '@/features/stops-filter/model'
+import { ticketsSortReducer, setSort } from '@/features/tickets-sort/model'
 
 function SyncProbe() {
   useUrlFilterSync()

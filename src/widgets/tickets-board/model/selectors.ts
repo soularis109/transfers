@@ -4,11 +4,11 @@ import {
   selectTicketsStatus,
   SORT_COMPARATOR_FACTORIES,
   PAGE_SIZE,
-} from '../../../entities/ticket/model'
-import { getTicketStopsCount } from '../../../entities/ticket/lib'
-import { selectSelectedStops } from '../../../features/stops-filter/model'
-import { selectActiveSort } from '../../../features/tickets-sort/model'
-import { selectVisibleCount } from '../../../features/tickets-pagination/model'
+} from '@/entities/ticket/model'
+import { getTicketStopsCount } from '@/entities/ticket/lib'
+import { selectSelectedStops } from '@/features/stops-filter/model'
+import { selectActiveSort } from '@/features/tickets-sort/model'
+import { selectVisibleCount } from '@/features/tickets-pagination/model'
 
 export const selectFilteredSortedTickets = createSelector(
   [selectAllTickets, selectSelectedStops, selectActiveSort],

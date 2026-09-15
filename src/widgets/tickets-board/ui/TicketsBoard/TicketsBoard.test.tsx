@@ -4,11 +4,11 @@ import userEvent from '@testing-library/user-event'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import TicketsBoard from './TicketsBoard'
-import { ticketsReducer } from '../../../../entities/ticket/model'
-import { stopsFilterReducer, toggleStop } from '../../../../features/stops-filter/model'
-import { ticketsSortReducer } from '../../../../features/tickets-sort/model'
-import { ticketsPaginationReducer } from '../../../../features/tickets-pagination/model'
-import type { Ticket } from '../../../../entities/ticket/model'
+import { ticketsReducer } from '@/entities/ticket/model'
+import { stopsFilterReducer, toggleStop } from '@/features/stops-filter/model'
+import { ticketsSortReducer } from '@/features/tickets-sort/model'
+import { ticketsPaginationReducer } from '@/features/tickets-pagination/model'
+import type { Ticket } from '@/entities/ticket/model'
 
 function makeTicket(id: string, price: number): Ticket {
   return {

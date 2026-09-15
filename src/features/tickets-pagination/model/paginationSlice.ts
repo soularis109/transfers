@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { PAGE_SIZE } from '../../../entities/ticket/model'
+import { PAGE_SIZE } from '@/entities/ticket/model'
 
 interface PaginationState {
   visibleCount: number

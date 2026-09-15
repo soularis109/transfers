@@ -1,4 +1,4 @@
-import { PAGE_SIZE } from '../../../../entities/ticket/model'
+import { PAGE_SIZE } from '@/entities/ticket/model'
 import type { BoardStatus } from '../../model'
 
 interface TicketsBoardStatusProps {

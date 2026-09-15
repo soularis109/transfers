@@ -1,6 +1,6 @@
-import { STOPS_OPTIONS } from '../../../entities/ticket/model'
-import type { StopsCount } from '../../../entities/ticket/model'
-import { pluralizeStops } from '../../../shared/lib/pluralizeStops'
+import { STOPS_OPTIONS } from '@/entities/ticket/model'
+import type { StopsCount } from '@/entities/ticket/model'
+import { pluralizeStops } from '@/shared/lib/pluralizeStops'
 
 export const ALL_STOPS_VALUE = 'all' as const
 

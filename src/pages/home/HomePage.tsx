@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import './HomePage.scss'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { fetchTickets, selectTicketsStatus } from '../../entities/ticket/model'
-import Logo from '../../shared/ui/Logo'
-import StopsFilterCard from '../../features/stops-filter/ui/StopsFilterCard'
-import TicketsBoard from '../../widgets/tickets-board/ui/TicketsBoard'
-import { useUrlFilterSync } from '../../features/url-sync/lib'
-import { clearAll } from '../../features/stops-filter/model'
-import { setSort } from '../../features/tickets-sort/model'
+import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { fetchTickets, selectTicketsStatus } from '@/entities/ticket/model'
+import Logo from '@/shared/ui/Logo'
+import StopsFilterCard from '@/features/stops-filter/ui/StopsFilterCard'
+import TicketsBoard from '@/widgets/tickets-board/ui/TicketsBoard'
+import { useUrlFilterSync } from '@/features/url-sync/lib'
+import { clearAll } from '@/features/stops-filter/model'
+import { setSort } from '@/features/tickets-sort/model'
 
 function HomePage() {
   const dispatch = useAppDispatch()

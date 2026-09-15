@@ -1,12 +1,12 @@
 import { memo } from 'react'
 import './TicketCard.scss'
 import type { Ticket } from '../../model'
-import { formatTime } from '../../../../shared/lib/formatTime'
-import { formatDuration } from '../../../../shared/lib/formatDuration'
-import { pluralizeStops } from '../../../../shared/lib/pluralizeStops'
-import { formatPrice } from '../../../../shared/lib/formatPrice'
-import { formatStopsList } from '../../../../shared/lib/formatStopsList'
-import a4eLogo from '../../../../shared/assets/images/a4e.webp'
+import { formatTime } from '@/shared/lib/formatTime'
+import { formatDuration } from '@/shared/lib/formatDuration'
+import { pluralizeStops } from '@/shared/lib/pluralizeStops'
+import { formatPrice } from '@/shared/lib/formatPrice'
+import { formatStopsList } from '@/shared/lib/formatStopsList'
+import a4eLogo from '@/shared/assets/images/a4e.webp'
 
 interface TicketCardProps {
   ticket: Ticket

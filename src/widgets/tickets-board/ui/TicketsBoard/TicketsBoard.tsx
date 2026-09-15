@@ -1,19 +1,19 @@
 import { useEffect } from 'react'
 import './TicketsBoard.scss'
-import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
-import { selectTicketsError } from '../../../../entities/ticket/model'
+import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { selectTicketsError } from '@/entities/ticket/model'
 import {
   selectVisibleTickets,
   selectBoardStatus,
   selectHasMoreTickets,
   selectRemainingTicketsCount,
 } from '../../model'
-import { selectSelectedStops } from '../../../../features/stops-filter/model'
-import { selectActiveSort } from '../../../../features/tickets-sort/model'
-import { showMore, resetPagination } from '../../../../features/tickets-pagination/model'
-import TicketCard from '../../../../entities/ticket/ui/TicketCard'
-import SortTabs from '../../../../features/tickets-sort/ui/SortTabs'
-import Button from '../../../../shared/ui/Button'
+import { selectSelectedStops } from '@/features/stops-filter/model'
+import { selectActiveSort } from '@/features/tickets-sort/model'
+import { showMore, resetPagination } from '@/features/tickets-pagination/model'
+import TicketCard from '@/entities/ticket/ui/TicketCard'
+import SortTabs from '@/features/tickets-sort/ui/SortTabs'
+import Button from '@/shared/ui/Button'
 import TicketsBoardStatus from '../TicketsBoardStatus'
 
 function TicketsBoard() {
