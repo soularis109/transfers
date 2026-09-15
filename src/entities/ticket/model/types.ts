@@ -42,6 +42,14 @@ export interface TicketsResponse {
   tickets: Ticket[]
 }
 
+export function isTicketsResponse(data: unknown): data is TicketsResponse {
+  return (
+    typeof data === 'object' &&
+    data !== null &&
+    Array.isArray((data as { tickets?: unknown }).tickets)
+  )
+}
+
 /**
  * Кількість пересадок. У межах квитка вона однакова в обидва боки —
  * це гарантія з ТЗ, на неї спирається фільтр.
