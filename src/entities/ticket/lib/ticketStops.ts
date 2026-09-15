@@ -1,3 +1,4 @@
+import { STOPS_OPTIONS } from '../model/types'
 import type { Ticket, Segment, StopsCount } from '../model/types'
 
 export function getOutboundSegment(ticket: Ticket): Segment {
@@ -9,7 +10,7 @@ export function getInboundSegment(ticket: Ticket): Segment {
 }
 
 function toStopsCount(count: number): StopsCount {
-  if (count === 0 || count === 1 || count === 2 || count === 3) return count
+  if (STOPS_OPTIONS.includes(count as StopsCount)) return count as StopsCount
   throw new Error(`Unexpected stops count: ${count}`)
 }
 
