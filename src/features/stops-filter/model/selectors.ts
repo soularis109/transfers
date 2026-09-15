@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit'
 import type { RootState } from '../../../app/store'
-import { STOPS_OPTIONS } from '../../../entities/ticket/model/types'
+import { STOPS_OPTIONS } from '../../../entities/ticket/model'
 
 export const selectSelectedStops = (state: RootState) => state.stopsFilter.selectedStops
 
