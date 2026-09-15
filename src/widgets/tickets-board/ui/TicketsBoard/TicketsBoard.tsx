@@ -2,12 +2,11 @@ import { useEffect } from 'react'
 import './TicketsBoard.scss'
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
 import {
-  selectVisibleTickets,
-  selectFilteredTicketsCount,
   selectTicketsStatus,
   selectTicketsError,
   PAGE_SIZE,
 } from '../../../../entities/ticket/model'
+import { selectVisibleTickets, selectFilteredTicketsCount } from '../../model'
 import { selectSelectedStops } from '../../../../features/stops-filter/model'
 import { selectActiveSort } from '../../../../features/tickets-sort/model'
 import {

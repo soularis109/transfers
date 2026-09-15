@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { selectFilteredSortedTickets, selectVisibleTickets } from './selectors'
 import type { RootState } from '../../../app/store'
-import type { Ticket } from './types'
+import type { Ticket } from '../../../entities/ticket/model'
 
 function makeTicket(
   id: string,
