@@ -9,6 +9,7 @@ import { getTicketStopsCount } from '@/entities/ticket/lib'
 import { selectSelectedStops } from '@/features/stops-filter/model'
 import { selectActiveSort } from '@/features/tickets-sort/model'
 import { selectVisibleCount } from '@/features/tickets-pagination/model'
+import { assertNever } from '@/shared/lib/assertNever'
 
 export const selectFilteredSortedTickets = createSelector(
   [selectAllTickets, selectSelectedStops, selectActiveSort],
@@ -49,9 +50,16 @@ export type BoardStatus = (typeof BOARD_STATUSES)[number]
 export const selectBoardStatus = createSelector(
   [selectTicketsStatus, selectFilteredTicketsCount],
   (ticketsStatus, filteredCount): BoardStatus => {
-    if (ticketsStatus === 'loading' || ticketsStatus === 'idle') return 'loading'
-    if (ticketsStatus === 'failed') return 'failed'
-    if (filteredCount === 0) return 'empty'
-    return 'list'
+    switch (ticketsStatus) {
+      case 'idle':
+      case 'loading':
+        return 'loading'
+      case 'failed':
+        return 'failed'
+      case 'succeeded':
+        return filteredCount === 0 ? 'empty' : 'list'
+      default:
+        return assertNever(ticketsStatus)
+    }
   },
 )

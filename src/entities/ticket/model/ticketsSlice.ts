@@ -4,9 +4,11 @@ import { isTicketsResponse } from './types'
 import { checkTicketStopsConsistency } from '../lib/ticketStops'
 import type { RootState } from '@/app/store'
 
+export type TicketsStatus = 'idle' | 'loading' | 'succeeded' | 'failed'
+
 interface TicketsState {
   items: Ticket[]
-  status: 'idle' | 'loading' | 'succeeded' | 'failed'
+  status: TicketsStatus
   error: string | null
 }
 
