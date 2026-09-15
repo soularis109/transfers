@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import './TicketCard.scss'
 import type { Ticket } from '../../model'
 import { formatTime } from '../../../../shared/lib/formatTime'
@@ -45,4 +46,4 @@ function TicketCard({ ticket }: TicketCardProps) {
   )
 }
 
-export default TicketCard
+export default memo(TicketCard)
