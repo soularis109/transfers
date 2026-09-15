@@ -1,7 +1,12 @@
 import type { Ticket, StopsCount } from '../model/types'
 
+function toStopsCount(count: number): StopsCount {
+  if (count === 0 || count === 1 || count === 2 || count === 3) return count
+  throw new Error(`Unexpected stops count: ${count}`)
+}
+
 export function getTicketStopsCount(ticket: Ticket): StopsCount {
-  return ticket.segments[0].stops.length as StopsCount
+  return toStopsCount(ticket.segments[0].stops.length)
 }
 
 export function checkTicketStopsConsistency(ticket: Ticket): void {
