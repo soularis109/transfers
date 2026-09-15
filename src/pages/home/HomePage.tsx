@@ -5,7 +5,7 @@ import { fetchTickets, selectTicketsStatus } from '../../entities/ticket/model'
 import Logo from '../../shared/ui/Logo'
 import StopsFilterCard from '../../features/stops-filter/ui/StopsFilterCard'
 import TicketsBoard from '../../widgets/tickets-board/ui/TicketsBoard'
-import { useUrlFilterSync } from './useUrlFilterSync'
+import { useUrlFilterSync } from '../../features/url-sync/lib'
 import { clearAll } from '../../features/stops-filter/model'
 import { setSort } from '../../features/tickets-sort/model'
 
