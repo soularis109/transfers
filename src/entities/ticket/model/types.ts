@@ -58,4 +58,6 @@ export const SORT_LABELS: Record<SortKey, string> = {
   optimal: 'Оптимальний',
 }
 
+export const SORT_KEYS = Object.keys(SORT_LABELS) as SortKey[]
+
 export const PAGE_SIZE = 5

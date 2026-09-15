@@ -10,6 +10,7 @@ import {
 } from '../../model'
 import { STOPS_OPTIONS } from '../../../../entities/ticket/model'
 import type { StopsCount } from '../../../../entities/ticket/model'
+import { pluralizeStops } from '../../../../shared/lib/pluralizeStops'
 
 type RowValue = StopsCount | 'all'
 
@@ -18,16 +19,9 @@ interface StopsRow {
   label: string
 }
 
-const STOPS_LABELS: Record<StopsCount, string> = {
-  0: 'Без пересадок',
-  1: '1 пересадка',
-  2: '2 пересадки',
-  3: '3 пересадки',
-}
-
 const ROWS: StopsRow[] = [
   { value: 'all', label: 'Всі' },
-  ...STOPS_OPTIONS.map((option) => ({ value: option, label: STOPS_LABELS[option] })),
+  ...STOPS_OPTIONS.map((option) => ({ value: option, label: pluralizeStops(option) })),
 ]
 
 function StopsFilterCard() {
