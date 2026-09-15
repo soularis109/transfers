@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './HomePage.scss'
 import { useAppDispatch } from '@/shared/lib/store/hooks'
-import { fetchTickets } from '@/entities/ticket/model'
+import { fetchTickets, DEFAULT_SORT_KEY } from '@/entities/ticket/model'
 import Logo from '@/shared/ui/Logo'
 import StopsFilterCard from '@/features/stops-filter/ui/StopsFilterCard'
 import TicketsBoard from '@/widgets/tickets-board/ui/TicketsBoard'
@@ -20,7 +20,7 @@ function HomePage() {
 
   const handleLogoClick = () => {
     dispatch(clearAll())
-    dispatch(setSort('cheapest'))
+    dispatch(setSort(DEFAULT_SORT_KEY))
   }
 
   return (

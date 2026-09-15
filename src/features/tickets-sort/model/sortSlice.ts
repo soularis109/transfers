@@ -1,11 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { SortKey } from '@/entities/ticket/model'
+import { DEFAULT_SORT_KEY, type SortKey } from '@/entities/ticket/model'
 
 interface SortState {
   activeSort: SortKey
 }
 
-const initialState: SortState = { activeSort: 'cheapest' }
+const initialState: SortState = { activeSort: DEFAULT_SORT_KEY }
 
 const sortSlice = createSlice({
   name: 'ticketsSort',
