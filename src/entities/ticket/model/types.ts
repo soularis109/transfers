@@ -56,7 +56,7 @@ export function isTicketsResponse(data: unknown): data is TicketsResponse {
  */
 export type StopsCount = 0 | 1 | 2 | 3
 
-export const STOPS_OPTIONS: StopsCount[] = [0, 1, 2, 3]
+export const STOPS_OPTIONS: readonly StopsCount[] = [0, 1, 2, 3] as const
 
 export type SortKey = 'cheapest' | 'fastest' | 'optimal'
 
