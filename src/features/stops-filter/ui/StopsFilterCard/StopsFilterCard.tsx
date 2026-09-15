@@ -1,5 +1,5 @@
-import type { KeyboardEvent } from 'react'
 import './StopsFilterCard.scss'
+import Checkbox from '@/shared/ui/Checkbox'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/store/hooks'
 import {
   toggleStop,
@@ -11,6 +11,14 @@ import {
   STOPS_ROWS,
 } from '../../model'
 import type { StopsRowValue } from '../../model'
+
+const CHECKBOX_CLASS_NAMES = {
+  root: 'stops-filter__row',
+  box: 'stops-filter__checkbox',
+  boxChecked: 'stops-filter__checkbox--checked',
+  icon: 'stops-filter__check-icon',
+  label: 'stops-filter__label',
+}
 
 function StopsFilterCard() {
   const dispatch = useAppDispatch()
@@ -28,51 +36,20 @@ function StopsFilterCard() {
     }
   }
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLLIElement>, value: StopsRowValue) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      handleToggle(value)
-    }
-  }
-
   return (
     <div className="stops-filter">
       <h2 className="stops-filter__title">Кількість пересадок</h2>
       <ul className="stops-filter__list">
-        {STOPS_ROWS.map((row) => {
-          const checked = isChecked(row.value)
-          return (
-            <li
-              key={row.value}
-              className="stops-filter__row"
-              role="checkbox"
-              aria-checked={checked}
-              tabIndex={0}
-              onClick={() => handleToggle(row.value)}
-              onKeyDown={(event) => handleKeyDown(event, row.value)}
-            >
-              <span
-                className={`stops-filter__checkbox${
-                  checked ? ' stops-filter__checkbox--checked' : ''
-                }`}
-              >
-                {checked && (
-                  <svg className="stops-filter__check-icon" viewBox="0 0 12 10" aria-hidden="true">
-                    <path
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M1 5l3.5 3.5L11 1"
-                    />
-                  </svg>
-                )}
-              </span>
-              <span className="stops-filter__label">{row.label}</span>
-            </li>
-          )
-        })}
+        {STOPS_ROWS.map((row) => (
+          <Checkbox
+            key={row.value}
+            as="li"
+            checked={isChecked(row.value)}
+            onChange={() => handleToggle(row.value)}
+            label={row.label}
+            classNames={CHECKBOX_CLASS_NAMES}
+          />
+        ))}
       </ul>
     </div>
   )
