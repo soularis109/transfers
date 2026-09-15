@@ -1,13 +1,10 @@
 import './SortTabs.scss'
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
 import { setSort, selectActiveSort } from '../../model'
+import { SORT_LABELS } from '../../../../entities/ticket/model'
 import type { SortKey } from '../../../../entities/ticket/model'
 
-const TABS: { key: SortKey; label: string }[] = [
-  { key: 'cheapest', label: 'Найдешевший' },
-  { key: 'fastest', label: 'Найшвидший' },
-  { key: 'optimal', label: 'Оптимальний' },
-]
+const SORT_KEYS = Object.keys(SORT_LABELS) as SortKey[]
 
 function SortTabs() {
   const dispatch = useAppDispatch()
@@ -15,14 +12,14 @@ function SortTabs() {
 
   return (
     <div className="sort-tabs">
-      {TABS.map((tab) => (
+      {SORT_KEYS.map((key) => (
         <button
-          key={tab.key}
+          key={key}
           type="button"
-          className={`sort-tabs__tab${tab.key === activeSort ? ' sort-tabs__tab--active' : ''}`}
-          onClick={() => dispatch(setSort(tab.key))}
+          className={`sort-tabs__tab${key === activeSort ? ' sort-tabs__tab--active' : ''}`}
+          onClick={() => dispatch(setSort(key))}
         >
-          {tab.label}
+          {SORT_LABELS[key]}
         </button>
       ))}
     </div>
