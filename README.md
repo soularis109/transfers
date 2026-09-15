@@ -23,17 +23,17 @@ npm run dev
 
 ## Scripts
 
-| Command                   | Description                  |
-| -------------------------- | ----------------------------- |
-| `npm run dev`             | Start the dev server          |
-| `npm run build`           | Production build              |
-| `npm run preview`         | Preview the build locally     |
-| `npm run lint`            | Lint code                     |
-| `npm run lint:styles`     | Lint styles (SCSS)             |
-| `npm run lint:styles:fix` | Lint styles with autofix       |
-| `npm run format`          | Format code with Prettier      |
-| `npm test`                | Run tests (Vitest)             |
-| `npm run test:watch`      | Run tests in watch mode        |
+| Command                   | Description               |
+| ------------------------- | ------------------------- |
+| `npm run dev`             | Start the dev server      |
+| `npm run build`           | Production build          |
+| `npm run preview`         | Preview the build locally |
+| `npm run lint`            | Lint code                 |
+| `npm run lint:styles`     | Lint styles (SCSS)        |
+| `npm run lint:styles:fix` | Lint styles with autofix  |
+| `npm run format`          | Format code with Prettier |
+| `npm test`                | Run tests (Vitest)        |
+| `npm run test:watch`      | Run tests in watch mode   |
 
 ## Solution
 

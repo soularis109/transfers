@@ -8,9 +8,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
   return (
     <ErrorBoundary>
       <Provider store={store}>
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
-          {children}
-        </BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>{children}</BrowserRouter>
       </Provider>
     </ErrorBoundary>
   )
