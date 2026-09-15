@@ -43,32 +43,13 @@ Vite, SCSS (BEM, лише `@use`/`@forward`, без `@import`) зі stylelint
 (`stylelint-config-standard-scss` + кастомний `selector-class-pattern`
 під BEM), Vitest + Testing Library для юніт-тестів.
 
-Свідомі відхилення від Feature-Sliced Design, проговорені окремо в
-процесі розробки:
-
-- `entities/ticket/model/selectors.ts` імпортує селектори з
-  `features/stops-filter`, `features/tickets-sort` і
-  `features/tickets-pagination`, щоб мати єдину точку combined-селектора
-  над кількома зрізами стану (порушує формальний напрямок залежностей
-  FSD "нижчий шар не знає про вищий").
-- `shared/lib/ticketStops.ts` імпортує типи `Ticket`/`StopsCount` з
-  `entities`, бо сигнатура хелпера (`(ticket: Ticket) => StopsCount`)
-  цього прямо вимагає.
-- `features/stops-filter/model` (`filterSlice.ts`, `selectors.ts`) та
-  `features/tickets-pagination/model/paginationSlice.ts` імпортують
-  константи (`STOPS_OPTIONS`, `PAGE_SIZE`) з публічного бареля
-  `entities/ticket/model` — у поєднанні з першим пунктом це замикає
-  двонапрямлену залежність `entities/ticket/model` ↔
-  `features/stops-filter/model` і `entities/ticket/model` ↔
-  `features/tickets-pagination/model` на рівні модульного графа.
-  Перевірено, що це безпечно: `types.ts` (звідки й походять ці
-  константи) не має власних залежностей, тому завантажується першим
-  незалежно від циклу, а `PAGE_SIZE`/`STOPS_OPTIONS` вже мають значення
-  до того, як їх читає будь-який модуль у цій парі — підтверджено
-  тестами (`paginationSlice.test.ts` явно перевіряє початковий
-  `visibleCount = PAGE_SIZE`) і відсутністю попереджень про циклічні
-  залежності в prod-білді (Rollup). Свідомий вибір на користь єдиного
-  публічного API слайсу замість формальної відсутності циклів.
+Архітектура — Feature-Sliced Design без винятків: `entities/ticket/model`
+не залежить від жодного `features/*`, а доменна логіка квитка
+(`getTicketStopsCount`, `checkTicketStopsConsistency`) лежить у
+`entities/ticket/lib`, а не в domain-agnostic `shared`. Комбіновані
+селектори, що об'єднують entity-стан з кількома feature-селекторами
+(`selectFilteredSortedTickets`, `selectVisibleTickets` тощо), живуть у
+`widgets/tickets-board` — шарі, який їх і композує.
 
 ### Запуск локально
 
