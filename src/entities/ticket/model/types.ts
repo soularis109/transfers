@@ -52,7 +52,6 @@ export const STOPS_OPTIONS: StopsCount[] = [0, 1, 2, 3]
 
 export type SortKey = 'cheapest' | 'fastest' | 'optimal'
 
-/** Порядок і підписи табів сортування; ключі — єдине джерело правди для SortKey. */
 export const SORT_LABELS: Record<SortKey, string> = {
   cheapest: 'Найдешевший',
   fastest: 'Найшвидший',
