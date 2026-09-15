@@ -1,5 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit'
-import { selectAllTickets, SORT_COMPARATOR_FACTORIES } from '../../../entities/ticket/model'
+import {
+  selectAllTickets,
+  SORT_COMPARATOR_FACTORIES,
+  PAGE_SIZE,
+} from '../../../entities/ticket/model'
 import { getTicketStopsCount } from '../../../entities/ticket/lib'
 import { selectSelectedStops } from '../../../features/stops-filter/model'
 import { selectActiveSort } from '../../../features/tickets-sort/model'
@@ -26,4 +30,14 @@ export const selectFilteredTicketsCount = createSelector(
 export const selectVisibleTickets = createSelector(
   [selectFilteredSortedTickets, selectVisibleCount],
   (tickets, visibleCount) => tickets.slice(0, visibleCount),
+)
+
+export const selectHasMoreTickets = createSelector(
+  [selectFilteredTicketsCount, selectVisibleCount],
+  (filteredCount, visibleCount) => visibleCount < filteredCount,
+)
+
+export const selectRemainingTicketsCount = createSelector(
+  [selectFilteredTicketsCount, selectVisibleCount],
+  (filteredCount, visibleCount) => Math.min(PAGE_SIZE, filteredCount - visibleCount),
 )

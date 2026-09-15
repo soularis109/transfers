@@ -6,14 +6,15 @@ import {
   selectTicketsError,
   PAGE_SIZE,
 } from '../../../../entities/ticket/model'
-import { selectVisibleTickets, selectFilteredTicketsCount } from '../../model'
+import {
+  selectVisibleTickets,
+  selectFilteredTicketsCount,
+  selectHasMoreTickets,
+  selectRemainingTicketsCount,
+} from '../../model'
 import { selectSelectedStops } from '../../../../features/stops-filter/model'
 import { selectActiveSort } from '../../../../features/tickets-sort/model'
-import {
-  selectVisibleCount,
-  showMore,
-  resetPagination,
-} from '../../../../features/tickets-pagination/model'
+import { showMore, resetPagination } from '../../../../features/tickets-pagination/model'
 import TicketCard from '../../../../entities/ticket/ui/TicketCard'
 import SortTabs from '../../../../features/tickets-sort/ui/SortTabs'
 import Button from '../../../../shared/ui/Button'
@@ -24,11 +25,10 @@ function TicketsBoard() {
   const error = useAppSelector(selectTicketsError)
   const visibleTickets = useAppSelector(selectVisibleTickets)
   const filteredCount = useAppSelector(selectFilteredTicketsCount)
-  const visibleCount = useAppSelector(selectVisibleCount)
+  const hasMore = useAppSelector(selectHasMoreTickets)
+  const remainingCount = useAppSelector(selectRemainingTicketsCount)
   const selectedStops = useAppSelector(selectSelectedStops)
   const activeSort = useAppSelector(selectActiveSort)
-
-  const hasMore = visibleCount < filteredCount
 
   useEffect(() => {
     dispatch(resetPagination())
@@ -60,7 +60,7 @@ function TicketsBoard() {
           </ul>
           {hasMore && (
             <Button className="tickets-board__more" onClick={() => dispatch(showMore())}>
-              Показати ще {Math.min(PAGE_SIZE, filteredCount - visibleCount)} квитків
+              Показати ще {remainingCount} квитків
             </Button>
           )}
         </>
