@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './HomePage.scss'
-import { useAppDispatch, useAppSelector } from '@/shared/lib/store/hooks'
-import { fetchTickets, selectTicketsStatus } from '@/entities/ticket/model'
+import { useAppDispatch } from '@/shared/lib/store/hooks'
+import { fetchTickets } from '@/entities/ticket/model'
 import Logo from '@/shared/ui/Logo'
 import StopsFilterCard from '@/features/stops-filter/ui/StopsFilterCard'
 import TicketsBoard from '@/widgets/tickets-board/ui/TicketsBoard'
@@ -11,15 +11,12 @@ import { setSort } from '@/features/tickets-sort/model'
 
 function HomePage() {
   const dispatch = useAppDispatch()
-  const status = useAppSelector(selectTicketsStatus)
 
   useUrlFilterSync()
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchTickets())
-    }
-  }, [dispatch, status])
+    dispatch(fetchTickets())
+  }, [dispatch])
 
   const handleLogoClick = () => {
     dispatch(clearAll())

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { Ticket } from './types'
 import { isTicketsResponse } from './types'
 import { checkTicketStopsConsistency } from '../lib/ticketStops'
+import type { RootState } from '@/app/store'
 
 interface TicketsState {
   items: Ticket[]
@@ -15,13 +16,19 @@ const initialState: TicketsState = {
   error: null,
 }
 
-export const fetchTickets = createAsyncThunk<Ticket[]>('tickets/fetchTickets', async () => {
-  const res = await fetch(`${import.meta.env.BASE_URL}data/tickets.json`)
-  if (!res.ok) throw new Error(`Failed to load tickets: ${res.status}`)
-  const data: unknown = await res.json()
-  if (!isTicketsResponse(data)) throw new Error('Invalid tickets response shape')
-  return data.tickets
-})
+export const fetchTickets = createAsyncThunk<Ticket[], void, { state: RootState }>(
+  'tickets/fetchTickets',
+  async () => {
+    const res = await fetch(`${import.meta.env.BASE_URL}data/tickets.json`)
+    if (!res.ok) throw new Error(`Failed to load tickets: ${res.status}`)
+    const data: unknown = await res.json()
+    if (!isTicketsResponse(data)) throw new Error('Invalid tickets response shape')
+    return data.tickets
+  },
+  {
+    condition: (_, { getState }) => getState().tickets.status === 'idle',
+  },
+)
 
 const ticketsSlice = createSlice({
   name: 'tickets',
