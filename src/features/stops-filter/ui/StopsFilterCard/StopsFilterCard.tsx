@@ -1,6 +1,6 @@
 import type { KeyboardEvent } from 'react'
 import './StopsFilterCard.scss'
-import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/store/hooks'
 import {
   toggleStop,
   selectAll,

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import './TicketsBoard.scss'
-import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/store/hooks'
 import { selectTicketsError } from '@/entities/ticket/model'
 import {
   selectVisibleTickets,

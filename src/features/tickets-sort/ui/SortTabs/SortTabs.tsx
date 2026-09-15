@@ -1,5 +1,5 @@
 import './SortTabs.scss'
-import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/store/hooks'
 import { setSort, selectActiveSort } from '../../model'
 import { SORT_LABELS, SORT_KEYS } from '@/entities/ticket/model'
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import './HomePage.scss'
-import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/store/hooks'
 import { fetchTickets, selectTicketsStatus } from '@/entities/ticket/model'
 import Logo from '@/shared/ui/Logo'
 import StopsFilterCard from '@/features/stops-filter/ui/StopsFilterCard'

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/store/hooks'
 import { STOPS_OPTIONS, SORT_KEYS } from '@/entities/ticket/model'
 import type { SortKey, StopsCount } from '@/entities/ticket/model'
 import { setStops, selectSelectedStops } from '@/features/stops-filter/model'
