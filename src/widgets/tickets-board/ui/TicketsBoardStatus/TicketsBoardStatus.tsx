@@ -1,5 +1,6 @@
 import { PAGE_SIZE } from '@/entities/ticket/model'
 import type { BoardStatus } from '../../model'
+import { assertNever } from '@/shared/lib/assertNever'
 
 interface TicketsBoardStatusProps {
   status: Exclude<BoardStatus, 'list'>
@@ -25,7 +26,7 @@ function TicketsBoardStatus({ status, error }: TicketsBoardStatusProps) {
         </p>
       )
     default:
-      return null
+      return assertNever(status)
   }
 }
 
