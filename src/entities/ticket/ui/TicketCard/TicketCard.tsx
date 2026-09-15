@@ -5,6 +5,7 @@ import { formatTime } from '../../../../shared/lib/formatTime'
 import { formatDuration } from '../../../../shared/lib/formatDuration'
 import { pluralizeStops } from '../../../../shared/lib/pluralizeStops'
 import { formatPrice } from '../../../../shared/lib/formatPrice'
+import { formatStopsList } from '../../../../shared/lib/formatStopsList'
 import a4eLogo from '../../../../shared/assets/images/a4e.webp'
 
 interface TicketCardProps {
@@ -35,9 +36,7 @@ function TicketCard({ ticket }: TicketCardProps) {
             </div>
             <div className="ticket-card__col">
               <span className="ticket-card__label">{pluralizeStops(segment.stops.length)}</span>
-              <span className="ticket-card__value">
-                {segment.stops.length > 0 ? segment.stops.join(', ') : '—'}
-              </span>
+              <span className="ticket-card__value">{formatStopsList(segment.stops)}</span>
             </div>
           </div>
         ))}
