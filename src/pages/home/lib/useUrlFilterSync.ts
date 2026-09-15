@@ -6,7 +6,6 @@ import type { SortKey, StopsCount } from '@/entities/ticket/model'
 import { setStops, selectSelectedStops } from '@/features/stops-filter/model'
 import { setSort, selectActiveSort } from '@/features/tickets-sort/model'
 
-/** Синхронізує фільтр пересадок і сортування з `?stops=1,2&sort=cheapest` у URL. */
 export function useUrlFilterSync() {
   const dispatch = useAppDispatch()
   const selectedStops = useAppSelector(selectSelectedStops)

@@ -1,31 +1,21 @@
-// src/app/styles/abstracts/_variables.scss
-// Значення зняті вимірюванням макета попіксельно.
-// Шрифт і кегль звірити в Figma: клік по текстовому шарі -> панель Design.
-
-// ─── Кольори ────────────────────────────────────────────────────────────────
-$color-bg: #f3f7fa; // фон сторінки
-$color-surface: #fff; // картки, фільтр, неактивні таби
-$color-primary: #2196f3; // акцент: ціна, активний таб, кнопка, чекбокс
-$color-primary-light: #42a5f5; // світлий кінець градієнта логотипа
-$color-primary-dark: #1b87de; // hover кнопки та активного таба (немає в макеті)
-$color-accent: #00afe6; // другий колір градієнта логотипа
-
-$color-text: #4a4a4a; // основний текст: значення, неактивні таби
-$color-text-muted: #a0b0b9; // підписи-капси: "В ДОРОЗІ", "1 ПЕРЕСАДКА"
-$color-text-strong: #211c1c; // заголовок "КІЛЬКІСТЬ ПЕРЕСАДОК"
+$color-bg: #f3f7fa;
+$color-surface: #fff;
+$color-primary: #2196f3;
+$color-primary-light: #42a5f5;
+$color-primary-dark: #1b87de;
+$color-accent: #00afe6;
+$color-text: #4a4a4a;
+$color-text-muted: #a0b0b9;
+$color-text-strong: #211c1c;
 $color-text-inverse: #fff;
-$color-border: #dfe5ec; // рамка й роздільники табів
-$color-border-control: #9abbce; // рамка невибраного чекбокса
-$color-row-hover: #f1fcff; // підсвітка рядка фільтра на hover
-
-// ─── Тіні ───────────────────────────────────────────────────────────────────
+$color-border: #dfe5ec;
+$color-border-control: #9abbce;
+$color-row-hover: #f1fcff;
 $shadow-card: 0 2px 8px rgb(74 90 110 / 10%);
 $shadow-card-hover: 0 4px 14px rgb(74 90 110 / 16%);
 $shadow-logo: 0 6px 16px rgb(74 90 110 / 25%);
-$shadow-logo-hover: 0 8px 22px rgb(74 90 110 / 38%); // ТЗ: тінь логотипа змінюється на hover
+$shadow-logo-hover: 0 8px 22px rgb(74 90 110 / 38%);
 $shadow-focus: 0 0 0 3px rgb(33 150 243 / 30%);
-
-// ─── Типографіка ────────────────────────────────────────────────────────────
 $font-family-base:
   'Open Sans',
   -apple-system,
@@ -33,31 +23,26 @@ $font-family-base:
   'Segoe UI',
   roboto,
   sans-serif;
-$font-size-price: 24px; // "13 300 $" — виміряна висота цифр 21px
-$font-size-value: 14px; // "10:45 – 08:00", "34г 15хв", "HKG"
-$font-size-title: 14px; // "КІЛЬКІСТЬ ПЕРЕСАДОК"
-$font-size-label: 13px; // підпис біля чекбокса
-$font-size-caps: 12px; // "В ДОРОЗІ", таби, кнопка
-
+$font-size-price: 24px;
+$font-size-value: 14px;
+$font-size-title: 14px;
+$font-size-label: 13px;
+$font-size-caps: 12px;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $letter-spacing-caps: 0.5px;
 $letter-spacing-button: 1px;
 $line-height-base: 1.4;
-
-// ─── Розкладка ──────────────────────────────────────────────────────────────
-$layout-max-width: 960px; // 232 (фільтр) + 40 (проміжок) + 502 (список)
+$layout-max-width: 960px;
 $layout-sidebar: 232px;
 $layout-gutter: 40px;
 $logo-size: 68px;
 $tabs-height: 48px;
-$card-height: 184px; // орієнтир, реальну задає контент
+$card-height: 184px;
 $button-height: 50px;
 $filter-row-height: 40px;
 $checkbox-size: 20px;
-
-// ─── Відступи ───────────────────────────────────────────────────────────────
 $space-2: 2px;
 $space-4: 4px;
 $space-8: 8px;
@@ -67,12 +52,9 @@ $space-20: 20px;
 $space-24: 24px;
 $space-40: 40px;
 $space-93: 93px;
-$radius-sm: 2px; // чекбокс
-$radius-md: 5px; // картки, таби, кнопка, фільтр
-
+$radius-sm: 2px;
+$radius-md: 5px;
 $transition-fast: 0.15s ease;
 $transition-base: 0.2s ease;
-
-// ─── Брейкпоїнти ────────────────────────────────────────────────────────────
-$bp-tablet: 860px; // нижче — фільтр переїжджає над списком
-$bp-mobile: 560px; // нижче — сегмент у 2 колонки, таби вертикально
+$bp-tablet: 860px;
+$bp-mobile: 560px;

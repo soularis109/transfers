@@ -51,8 +51,8 @@ describe('byPrice', () => {
 
 describe('byDuration', () => {
   it('sorts ascending by total duration across both segments', () => {
-    const fast = makeTicket('fast', 100, 60, 60) // total 120
-    const slow = makeTicket('slow', 100, 200, 200) // total 400
+    const fast = makeTicket('fast', 100, 60, 60)
+    const slow = makeTicket('slow', 100, 200, 200)
     expect(byDuration(fast, slow)).toBeLessThan(0)
     expect(byDuration(slow, fast)).toBeGreaterThan(0)
   })
