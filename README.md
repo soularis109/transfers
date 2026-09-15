@@ -1,10 +1,10 @@
 # Transfers
 
-Тестове завдання на позицію Frontend Developer для Collaborator.pro.
+Test assignment for the Frontend Developer position at Collaborator.pro.
 
-Демо: https://soularis109.github.io/transfers/
+Demo: https://soularis109.github.io/transfers/
 
-## Стек
+## Stack
 
 - Vite
 - React 19 + TypeScript
@@ -14,54 +14,54 @@
 - Vitest + Testing Library (react, jest-dom, user-event)
 - Prettier
 
-## Розробка
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Скрипти
+## Scripts
 
-| Команда                   | Опис                       |
-| ------------------------- | -------------------------- |
-| `npm run dev`             | Запуск дев-сервера         |
-| `npm run build`           | Продакшн-збірка            |
-| `npm run preview`         | Перегляд збірки локально   |
-| `npm run lint`            | Лінт коду                  |
-| `npm run lint:styles`     | Лінт стилів (SCSS)         |
-| `npm run lint:styles:fix` | Лінт стилів з автофіксом   |
-| `npm run format`          | Форматування коду Prettier |
-| `npm test`                | Запуск тестів (Vitest)     |
-| `npm run test:watch`      | Тести у watch-режимі       |
+| Command                   | Description                  |
+| -------------------------- | ----------------------------- |
+| `npm run dev`             | Start the dev server          |
+| `npm run build`           | Production build              |
+| `npm run preview`         | Preview the build locally     |
+| `npm run lint`            | Lint code                     |
+| `npm run lint:styles`     | Lint styles (SCSS)             |
+| `npm run lint:styles:fix` | Lint styles with autofix       |
+| `npm run format`          | Format code with Prettier      |
+| `npm test`                | Run tests (Vitest)             |
+| `npm run test:watch`      | Run tests in watch mode        |
 
-## Рішення
+## Solution
 
-Стек: React 19 + TypeScript, Redux Toolkit (фільтрація/сортування/
-пагінація рахуються в мемоізованих `createSelector`, а не в компонентах),
-Vite, SCSS (BEM, лише `@use`/`@forward`, без `@import`) зі stylelint
-(`stylelint-config-standard-scss` + кастомний `selector-class-pattern`
-під BEM), Vitest + Testing Library для юніт-тестів.
+Stack: React 19 + TypeScript, Redux Toolkit (filtering/sorting/
+pagination computed in memoized `createSelector`s, not in components),
+Vite, SCSS (BEM, only `@use`/`@forward`, no `@import`) with stylelint
+(`stylelint-config-standard-scss` + a custom `selector-class-pattern`
+for BEM), Vitest + Testing Library for unit tests.
 
-Архітектура — Feature-Sliced Design без винятків: `entities/ticket/model`
-не залежить від жодного `features/*`, а доменна логіка квитка
-(`getTicketStopsCount`, `checkTicketStopsConsistency`) лежить у
-`entities/ticket/lib`, а не в domain-agnostic `shared`. Комбіновані
-селектори, що об'єднують entity-стан з кількома feature-селекторами
-(`selectFilteredSortedTickets`, `selectVisibleTickets` тощо), живуть у
-`widgets/tickets-board` — шарі, який їх і композує.
+Architecture — Feature-Sliced Design with no exceptions: `entities/ticket/model`
+does not depend on any `features/*`, and ticket domain logic
+(`getTicketStopsCount`, `checkTicketStopsConsistency`) lives in
+`entities/ticket/lib`, not in the domain-agnostic `shared`. Combined
+selectors that merge entity state with several feature selectors
+(`selectFilteredSortedTickets`, `selectVisibleTickets`, etc.) live in
+`widgets/tickets-board` — the layer that composes them.
 
-### Запуск локально
+### Running locally
 
 ```bash
 npm install
-npm run dev            # дев-сервер
-npm test                # тести (Vitest)
-npm run lint:styles     # лінт SCSS (stylelint)
-npm run lint            # лінт коду (oxlint)
-npm run build            # продакшн-збірка
+npm run dev            # dev server
+npm test                # tests (Vitest)
+npm run lint:styles     # SCSS lint (stylelint)
+npm run lint            # code lint (oxlint)
+npm run build            # production build
 ```
 
-### Живий приклад
+### Live demo
 
 https://soularis109.github.io/transfers/
