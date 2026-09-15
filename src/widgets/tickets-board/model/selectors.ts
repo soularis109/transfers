@@ -4,6 +4,7 @@ import {
   selectTicketsStatus,
   SORT_COMPARATOR_FACTORIES,
   PAGE_SIZE,
+  TICKETS_STATUS,
 } from '@/entities/ticket/model'
 import type { TicketsStatus } from '@/entities/ticket/model'
 import { getTicketStopsCount } from '@/entities/ticket/lib'
@@ -45,20 +46,26 @@ export const selectRemainingTicketsCount = createSelector(
   (filteredCount, visibleCount) => Math.min(PAGE_SIZE, filteredCount - visibleCount),
 )
 
-export const BOARD_STATUSES = ['loading', 'failed', 'empty', 'list'] as const
-export type BoardStatus = (typeof BOARD_STATUSES)[number]
+export const BOARD_STATUS = {
+  LOADING: 'loading',
+  FAILED: 'failed',
+  EMPTY: 'empty',
+  LIST: 'list',
+} as const
+
+export type BoardStatus = (typeof BOARD_STATUS)[keyof typeof BOARD_STATUS]
 
 export const selectBoardStatus = createSelector(
   [selectTicketsStatus, selectFilteredTicketsCount],
   (ticketsStatus: TicketsStatus, filteredCount): BoardStatus => {
     switch (ticketsStatus) {
-      case 'idle':
-      case 'loading':
-        return 'loading'
-      case 'failed':
-        return 'failed'
-      case 'succeeded':
-        return filteredCount === 0 ? 'empty' : 'list'
+      case TICKETS_STATUS.IDLE:
+      case TICKETS_STATUS.LOADING:
+        return BOARD_STATUS.LOADING
+      case TICKETS_STATUS.FAILED:
+        return BOARD_STATUS.FAILED
+      case TICKETS_STATUS.SUCCEEDED:
+        return filteredCount === 0 ? BOARD_STATUS.EMPTY : BOARD_STATUS.LIST
       default:
         return assertNever(ticketsStatus)
     }

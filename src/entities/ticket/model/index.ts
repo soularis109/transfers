@@ -1,5 +1,5 @@
 export * from './types'
 export * from './selectors'
 export * from './comparators'
-export { default as ticketsReducer, fetchTickets } from './ticketsSlice'
+export { default as ticketsReducer, fetchTickets, TICKETS_STATUS } from './ticketsSlice'
 export type { TicketsStatus } from './ticketsSlice'

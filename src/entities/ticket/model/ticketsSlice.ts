@@ -4,7 +4,14 @@ import { isTicketsResponse } from './types'
 import { checkTicketStopsConsistency } from '../lib/ticketStops'
 import type { RootState } from '@/app/store'
 
-export type TicketsStatus = 'idle' | 'loading' | 'succeeded' | 'failed'
+export const TICKETS_STATUS = {
+  IDLE: 'idle',
+  LOADING: 'loading',
+  SUCCEEDED: 'succeeded',
+  FAILED: 'failed',
+} as const
+
+export type TicketsStatus = (typeof TICKETS_STATUS)[keyof typeof TICKETS_STATUS]
 
 interface TicketsState {
   items: Ticket[]
@@ -14,7 +21,7 @@ interface TicketsState {
 
 const initialState: TicketsState = {
   items: [],
-  status: 'idle',
+  status: TICKETS_STATUS.IDLE,
   error: null,
 }
 
@@ -28,7 +35,7 @@ export const fetchTickets = createAsyncThunk<Ticket[], void, { state: RootState 
     return data.tickets
   },
   {
-    condition: (_, { getState }) => getState().tickets.status === 'idle',
+    condition: (_, { getState }) => getState().tickets.status === TICKETS_STATUS.IDLE,
   },
 )
 
@@ -39,16 +46,16 @@ const ticketsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchTickets.pending, (state) => {
-        state.status = 'loading'
+        state.status = TICKETS_STATUS.LOADING
         state.error = null
       })
       .addCase(fetchTickets.fulfilled, (state, action) => {
-        state.status = 'succeeded'
+        state.status = TICKETS_STATUS.SUCCEEDED
         state.items = action.payload
         action.payload.forEach(checkTicketStopsConsistency)
       })
       .addCase(fetchTickets.rejected, (state, action) => {
-        state.status = 'failed'
+        state.status = TICKETS_STATUS.FAILED
         state.error = action.error.message ?? 'Unknown error'
       })
   },

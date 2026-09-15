@@ -7,6 +7,7 @@ import {
   selectBoardStatus,
   selectHasMoreTickets,
   selectRemainingTicketsCount,
+  BOARD_STATUS,
 } from '../../model'
 import { selectSelectedStops } from '@/features/stops-filter/model'
 import { selectActiveSort } from '@/features/tickets-sort/model'
@@ -33,7 +34,7 @@ function TicketsBoard() {
   return (
     <div className="tickets-board">
       <SortTabs />
-      {boardStatus === 'list' ? (
+      {boardStatus === BOARD_STATUS.LIST ? (
         <>
           <ul className="tickets-board__list">
             {visibleTickets.map((ticket) => (

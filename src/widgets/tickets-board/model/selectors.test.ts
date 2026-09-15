@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { selectFilteredSortedTickets, selectVisibleTickets } from './selectors'
 import type { RootState } from '@/app/store'
-import type { Ticket, TicketsStatus } from '@/entities/ticket/model'
+import { TICKETS_STATUS } from '@/entities/ticket/model'
+import type { Ticket } from '@/entities/ticket/model'
 
 function makeTicket(
   id: string,
@@ -47,7 +48,7 @@ function makeState(
   }> = {},
 ): RootState {
   return {
-    tickets: { items: tickets, status: 'succeeded' satisfies TicketsStatus, error: null },
+    tickets: { items: tickets, status: TICKETS_STATUS.SUCCEEDED, error: null },
     stopsFilter: { selectedStops: overrides.selectedStops ?? [] },
     ticketsSort: { activeSort: overrides.activeSort ?? 'cheapest' },
     ticketsPagination: { visibleCount: overrides.visibleCount ?? 5 },
@@ -80,9 +81,9 @@ describe('selectFilteredSortedTickets', () => {
     expect(result.map((t) => t.id)).toEqual(['two-stop-fast', 'direct-expensive', 'one-stop-cheap'])
   })
 
-  it('sorts by weighted price/duration balance for "optimal"', () => {
+  it('sorts by duration, then stops, then price for "optimal"', () => {
     const result = selectFilteredSortedTickets(makeState({ activeSort: 'optimal' }))
-    expect(result.map((t) => t.id)).toEqual(['two-stop-fast', 'one-stop-cheap', 'direct-expensive'])
+    expect(result.map((t) => t.id)).toEqual(['two-stop-fast', 'direct-expensive', 'one-stop-cheap'])
   })
 })
 

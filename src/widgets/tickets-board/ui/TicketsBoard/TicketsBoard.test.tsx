@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import TicketsBoard from './TicketsBoard'
-import { ticketsReducer } from '@/entities/ticket/model'
+import { ticketsReducer, TICKETS_STATUS } from '@/entities/ticket/model'
 import { stopsFilterReducer, toggleStop } from '@/features/stops-filter/model'
 import { ticketsSortReducer } from '@/features/tickets-sort/model'
 import { ticketsPaginationReducer } from '@/features/tickets-pagination/model'
@@ -45,7 +45,7 @@ function renderWithStore() {
       ticketsPagination: ticketsPaginationReducer,
     },
     preloadedState: {
-      tickets: { items: tickets, status: 'succeeded' as const, error: null },
+      tickets: { items: tickets, status: TICKETS_STATUS.SUCCEEDED, error: null },
       stopsFilter: { selectedStops: [] },
       ticketsSort: { activeSort: 'cheapest' as const },
       ticketsPagination: { visibleCount: 5 },

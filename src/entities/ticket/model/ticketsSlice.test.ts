@@ -1,5 +1,5 @@
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest'
-import ticketsReducer, { fetchTickets } from './ticketsSlice'
+import ticketsReducer, { fetchTickets, TICKETS_STATUS } from './ticketsSlice'
 import type { Ticket } from './types'
 
 const mockTickets: Ticket[] = [
@@ -28,7 +28,7 @@ const mockTickets: Ticket[] = [
 
 const initialState = {
   items: [],
-  status: 'idle' as const,
+  status: TICKETS_STATUS.IDLE,
   error: null,
 }
 
@@ -56,20 +56,20 @@ describe('ticketsSlice', () => {
 
   it('sets status to loading on pending', () => {
     const state = ticketsReducer(initialState, fetchTickets.pending('requestId'))
-    expect(state.status).toBe('loading')
+    expect(state.status).toBe(TICKETS_STATUS.LOADING)
     expect(state.error).toBeNull()
   })
 
   it('sets status to succeeded and fills items on fulfilled', () => {
     const state = ticketsReducer(initialState, fetchTickets.fulfilled(mockTickets, 'requestId'))
-    expect(state.status).toBe('succeeded')
+    expect(state.status).toBe(TICKETS_STATUS.SUCCEEDED)
     expect(state.items).toEqual(mockTickets)
   })
 
   it('sets status to failed and fills error on rejected', () => {
     const error = new Error('Failed to load tickets: 500')
     const state = ticketsReducer(initialState, fetchTickets.rejected(error, 'requestId'))
-    expect(state.status).toBe('failed')
+    expect(state.status).toBe(TICKETS_STATUS.FAILED)
     expect(state.error).toBe('Failed to load tickets: 500')
   })
 })
