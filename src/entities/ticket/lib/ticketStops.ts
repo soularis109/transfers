@@ -1,4 +1,12 @@
-import type { Ticket, StopsCount } from '../model/types'
+import type { Ticket, Segment, StopsCount } from '../model/types'
+
+export function getOutboundSegment(ticket: Ticket): Segment {
+  return ticket.segments[0]
+}
+
+export function getInboundSegment(ticket: Ticket): Segment {
+  return ticket.segments[1]
+}
 
 function toStopsCount(count: number): StopsCount {
   if (count === 0 || count === 1 || count === 2 || count === 3) return count
@@ -6,12 +14,12 @@ function toStopsCount(count: number): StopsCount {
 }
 
 export function getTicketStopsCount(ticket: Ticket): StopsCount {
-  return toStopsCount(ticket.segments[0].stops.length)
+  return toStopsCount(getOutboundSegment(ticket).stops.length)
 }
 
 export function checkTicketStopsConsistency(ticket: Ticket): void {
-  const outboundStops = ticket.segments[0].stops.length
-  const inboundStops = ticket.segments[1].stops.length
+  const outboundStops = getOutboundSegment(ticket).stops.length
+  const inboundStops = getInboundSegment(ticket).stops.length
 
   if (outboundStops !== inboundStops) {
     console.warn(
