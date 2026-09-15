@@ -5,6 +5,14 @@
   margin-inline: auto;
   padding: v.$space-93;
 
+  @media (max-width: v.$bp-tablet) {
+    padding: v.$space-40;
+  }
+
+  @media (max-width: v.$bp-mobile) {
+    padding: v.$space-20;
+  }
+
   &__header {
     display: flex;
     justify-content: center;
