@@ -1,4 +1,4 @@
-import type { Ticket, StopsCount } from '../../entities/ticket/model/types'
+import type { Ticket, StopsCount } from '../model/types'
 
 export function getTicketStopsCount(ticket: Ticket): StopsCount {
   return ticket.segments[0].stops.length as StopsCount

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { getTicketStopsCount, checkTicketStopsConsistency } from './ticketStops'
-import type { Ticket } from '../../entities/ticket/model/types'
+import type { Ticket } from '../model/types'
 
 function makeTicket(outboundStops: number, inboundStops: number): Ticket {
   return {

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { Ticket, TicketsResponse } from './types'
-import { checkTicketStopsConsistency } from '../../../shared/lib/ticketStops'
+import { checkTicketStopsConsistency } from '../lib/ticketStops'
 
 interface TicketsState {
   items: Ticket[]

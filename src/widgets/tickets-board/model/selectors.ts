@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit'
 import { selectAllTickets, SORT_COMPARATOR_FACTORIES } from '../../../entities/ticket/model'
-import { getTicketStopsCount } from '../../../shared/lib/ticketStops'
+import { getTicketStopsCount } from '../../../entities/ticket/lib'
 import { selectSelectedStops } from '../../../features/stops-filter/model'
 import { selectActiveSort } from '../../../features/tickets-sort/model'
 import { selectVisibleCount } from '../../../features/tickets-pagination/model'
