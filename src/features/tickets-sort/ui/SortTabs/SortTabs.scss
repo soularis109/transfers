@@ -39,6 +39,7 @@
     flex-direction: column;
 
     &__tab {
+      min-height: 48px;
       border-right: none;
       border-bottom: 1px solid v.$color-border;
 
