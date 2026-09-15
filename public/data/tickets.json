@@ -629,6 +629,48 @@
           "duration": 850
         }
       ]
+    },
+    {
+      "id": "tkt-031",
+      "price": 10600,
+      "carrier": "TK",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T08:20:00.000Z",
+          "stops": ["FRA", "IST"],
+          "duration": 380
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T09:10:00.000Z",
+          "stops": ["AMS", "DOH"],
+          "duration": 420
+        }
+      ]
+    },
+    {
+      "id": "tkt-032",
+      "price": 23800,
+      "carrier": "BA",
+      "segments": [
+        {
+          "origin": "LHR",
+          "destination": "DXB",
+          "date": "2026-06-12T09:05:00.000Z",
+          "stops": [],
+          "duration": 395
+        },
+        {
+          "origin": "DXB",
+          "destination": "LHR",
+          "date": "2026-06-19T10:40:00.000Z",
+          "stops": [],
+          "duration": 405
+        }
+      ]
     }
   ]
 }
