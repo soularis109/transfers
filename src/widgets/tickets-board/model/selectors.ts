@@ -1,6 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit'
 import {
   selectAllTickets,
+  selectTicketsStatus,
   SORT_COMPARATOR_FACTORIES,
   PAGE_SIZE,
 } from '../../../entities/ticket/model'
@@ -40,4 +41,17 @@ export const selectHasMoreTickets = createSelector(
 export const selectRemainingTicketsCount = createSelector(
   [selectFilteredTicketsCount, selectVisibleCount],
   (filteredCount, visibleCount) => Math.min(PAGE_SIZE, filteredCount - visibleCount),
+)
+
+export const BOARD_STATUSES = ['loading', 'failed', 'empty', 'list'] as const
+export type BoardStatus = (typeof BOARD_STATUSES)[number]
+
+export const selectBoardStatus = createSelector(
+  [selectTicketsStatus, selectFilteredTicketsCount],
+  (ticketsStatus, filteredCount): BoardStatus => {
+    if (ticketsStatus === 'loading' || ticketsStatus === 'idle') return 'loading'
+    if (ticketsStatus === 'failed') return 'failed'
+    if (filteredCount === 0) return 'empty'
+    return 'list'
+  },
 )

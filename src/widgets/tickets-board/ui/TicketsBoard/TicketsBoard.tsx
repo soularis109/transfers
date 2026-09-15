@@ -1,14 +1,10 @@
 import { useEffect } from 'react'
 import './TicketsBoard.scss'
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
-import {
-  selectTicketsStatus,
-  selectTicketsError,
-  PAGE_SIZE,
-} from '../../../../entities/ticket/model'
+import { selectTicketsError } from '../../../../entities/ticket/model'
 import {
   selectVisibleTickets,
-  selectFilteredTicketsCount,
+  selectBoardStatus,
   selectHasMoreTickets,
   selectRemainingTicketsCount,
 } from '../../model'
@@ -18,13 +14,13 @@ import { showMore, resetPagination } from '../../../../features/tickets-paginati
 import TicketCard from '../../../../entities/ticket/ui/TicketCard'
 import SortTabs from '../../../../features/tickets-sort/ui/SortTabs'
 import Button from '../../../../shared/ui/Button'
+import TicketsBoardStatus from '../TicketsBoardStatus'
 
 function TicketsBoard() {
   const dispatch = useAppDispatch()
-  const status = useAppSelector(selectTicketsStatus)
   const error = useAppSelector(selectTicketsError)
+  const boardStatus = useAppSelector(selectBoardStatus)
   const visibleTickets = useAppSelector(selectVisibleTickets)
-  const filteredCount = useAppSelector(selectFilteredTicketsCount)
   const hasMore = useAppSelector(selectHasMoreTickets)
   const remainingCount = useAppSelector(selectRemainingTicketsCount)
   const selectedStops = useAppSelector(selectSelectedStops)
@@ -37,19 +33,7 @@ function TicketsBoard() {
   return (
     <div className="tickets-board">
       <SortTabs />
-      {status === 'loading' || status === 'idle' ? (
-        <ul className="tickets-board__list" aria-label="Завантаження…">
-          {Array.from({ length: PAGE_SIZE }, (_, index) => (
-            <li key={index} className="tickets-board__skeleton" />
-          ))}
-        </ul>
-      ) : status === 'failed' ? (
-        <p className="tickets-board__status">Помилка: {error}</p>
-      ) : filteredCount === 0 ? (
-        <p className="tickets-board__empty">
-          За обраними фільтрами квитків не знайдено. Спробуйте зняти частину фільтрів.
-        </p>
-      ) : (
+      {boardStatus === 'list' ? (
         <>
           <ul className="tickets-board__list">
             {visibleTickets.map((ticket) => (
@@ -64,6 +48,8 @@ function TicketsBoard() {
             </Button>
           )}
         </>
+      ) : (
+        <TicketsBoardStatus status={boardStatus} error={error} />
       )}
     </div>
   )
